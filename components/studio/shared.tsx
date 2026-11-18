@@ -71,7 +71,25 @@ export function ProjectCard({ project }: { project: Project; index?: number; fea
 }
 
 export function Footer() {
-  return <footer className="footer wrap"><div className="footer-main"><Wordmark /><p>Independent design & development.<br /><a className="footer-email" href="mailto:hello@oddlogicstudio.com">hello@oddlogicstudio.com</a></p><div className="footer-links"><Link href="/">Home</Link><Link href="/work">Work</Link><Link href="/services">Services</Link><Link href="/about">About</Link><Link href="/contact" data-event="start_project">Start a project <span>↗</span></Link></div></div><div className="footer-bottom"><span>© {new Date().getFullYear()} Odd Logic Studio</span><Link href="/privacy">Privacy</Link></div></footer>;
+  return (
+    <footer className="footer wrap">
+      <div className="footer-main">
+        <Wordmark />
+        <a className="footer-email" href="mailto:hello@oddlogicstudio.com">hello@oddlogicstudio.com</a>
+        <nav className="footer-links" aria-label="Footer navigation">
+          <Link href="/">Home</Link>
+          <Link href="/work">Work</Link>
+          <Link href="/services">Services</Link>
+          <Link href="/about">About</Link>
+          <Link href="/contact" data-event="start_project">Contact</Link>
+        </nav>
+      </div>
+      <div className="footer-bottom">
+        <span>© {new Date().getFullYear()} Odd Logic Studio</span>
+        <Link href="/privacy">Privacy</Link>
+      </div>
+    </footer>
+  );
 }
 
 export function ContactLink({ children = 'Start a project', className = 'button' }: { children?: ReactNode; className?: string }) {

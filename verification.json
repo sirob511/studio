@@ -141,5 +141,29 @@
       "Visual review at desktop, tablet, and phone sizes"
     ],
     "build": "Next.js production webpack build and TypeScript passed; final tablet CSS adjustment visually reviewed in browser"
+  },
+  "footer_revision": {
+    "checked_on": "2026-11-17",
+    "summary": "Compact footer with one desktop row for logo, email, and navigation; smaller closing CTA and reduced FAQ-to-CTA spacing.",
+    "routes_checked": [
+      "/services",
+      "/contact",
+      "/work/oddlogic-ai"
+    ],
+    "viewport_widths": [
+      320,
+      390,
+      768,
+      1440,
+      1920
+    ],
+    "desktop_footer_height_px": 135,
+    "checks": [
+      "No horizontal overflow or browser JavaScript errors",
+      "All footer destinations and email/privacy links retained",
+      "Named footer navigation and visible focus styles",
+      "Responsive desktop row, tablet grid, and narrow-phone stack"
+    ],
+    "build": "Next.js production webpack build and TypeScript passed"
   }
 }

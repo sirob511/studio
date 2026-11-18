@@ -1,0 +1,23 @@
+{
+  "checked_on": "2026-11-17",
+  "routes_checked": 17,
+  "viewport_widths": [320, 390, 768, 1440],
+  "checks": {
+    "production_build": "passed",
+    "typescript": "passed",
+    "responsive_overflow": "passed after narrow-screen fixes",
+    "project_filters": "passed",
+    "mobile_navigation": "passed",
+    "form_validation": "passed",
+    "failure_preserves_entered_text": "passed",
+    "real_formsubmit_acceptance": "HTTP 200; inline success rendered",
+    "inbox_receipt": "awaiting owner confirmation",
+    "video_playback": "both passed; no autoplay; preload none",
+    "keyboard_skip_link": "passed",
+    "sitemap": "17 canonical URLs",
+    "robots": "private preview: noindex, disallow all",
+    "cold_field_performance": "not measured; local throttled browser check only"
+  },
+  "launch_dependencies": ["Custom domain DNS and HTTPS", "Public access and indexing", "Alternate-hostname redirect", "Merge OddLogic.ai contextual-link draft PR after public launch"],
+  "related_pr": "https://github.com/sirob511/oddlogic/pull/1"
+}

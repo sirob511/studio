@@ -1,0 +1,1 @@
+export default function NotFound(){return <main id="main" className="wrap page-heading"><span className="micro blue">404 / A small detour</span><h1>That page<br/>wandered off.</h1><p>There’s still plenty of work to explore.</p><a className="button" href="/work">Back to the portfolio ↗</a></main>}

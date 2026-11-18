@@ -228,6 +228,147 @@
   flex: 0 1 auto;
 }
 
+/* Case studies begin with the paired views, without a separate hero. */
+.case-page > .wrap > .back-link {
+  margin-top: 18px;
+}
+
+.case-heading.case-heading--compact {
+  padding: 12px 0 24px;
+}
+
+.case-heading--compact h1 {
+  margin: 0 0 10px;
+  font-size: clamp(28px, 2.8vw, 38px);
+  line-height: 1.12;
+}
+
+.case-heading--compact .case-heading-bottom {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 24px;
+}
+
+.case-heading--compact .case-heading-bottom > p {
+  margin-right: auto;
+  max-width: none;
+  font-size: 15px;
+}
+
+.case-heading--compact .text-link,
+.case-demo-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin: 0;
+  padding: 4px 0;
+  font-size: 13px;
+  white-space: nowrap;
+}
+
+.case-demo-link {
+  color: var(--blue);
+}
+
+.case-demo-link svg {
+  width: 17px;
+  height: 17px;
+}
+
+.case-details.case-showcase {
+  grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr);
+  gap: 28px;
+}
+
+.case-showcase .case-media-stage {
+  padding: 24px;
+  border: 0;
+  border-radius: 4px;
+}
+
+.case-showcase .project-preview--desktop {
+  max-width: 560px;
+}
+
+.case-showcase .project-preview--phone {
+  width: min(100%, 210px);
+}
+
+.case-showcase .annotation {
+  padding-top: 18px;
+}
+
+.case-showcase .annotation h2 {
+  font-size: 23px;
+  margin: 0 0 10px;
+}
+
+.case-intro.case-context {
+  padding: 36px 0;
+  margin-top: 36px;
+  border-top: 1px solid var(--line);
+  gap: 8%;
+}
+
+.case-context h2 {
+  font-size: 23px;
+  margin: 0 0 14px;
+}
+
+.case-context p {
+  font-size: 16px;
+}
+
+.case-context .caption {
+  font-size: 12px;
+  margin-top: 16px;
+}
+
+.case-page .case-motion {
+  padding: 24px 0 36px;
+  max-width: 960px;
+  margin-inline: auto;
+}
+
+.case-motion .section-heading {
+  margin-bottom: 24px;
+}
+
+.case-motion .section-heading h2 {
+  font-size: 28px;
+}
+
+.case-end-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+  padding: 22px 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  font-size: 14px;
+}
+
+.case-end-nav a {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.case-end-nav a:first-child {
+  white-space: nowrap;
+}
+
+.case-end-nav a:last-child {
+  text-align: right;
+}
+
+@media (min-width: 651px) and (max-width: 900px) {
+  .case-showcase .project-preview--phone {
+    width: min(100%, 170px);
+  }
+}
+
 @media (max-width: 650px) {
   .project-device-monitor {
     padding: 5px 5px 10px;
@@ -260,5 +401,51 @@
 .detail-image.case-media-stage,
 .mobile-image.case-media-stage {
     padding: 28px 20px;
+  }
+
+  .case-heading.case-heading--compact {
+    padding: 12px 0 20px;
+  }
+
+  .case-heading--compact h1 {
+    font-size: 29px;
+  }
+
+  .case-heading--compact .case-heading-bottom {
+    gap: 10px 20px;
+  }
+
+  .case-heading--compact .case-heading-bottom > p {
+    flex-basis: 100%;
+  }
+
+  .case-heading--compact .case-heading-bottom .text-link {
+    margin: 0;
+  }
+
+  .case-details.case-showcase {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .case-showcase .case-media-stage {
+    padding: 20px;
+  }
+
+  .case-intro.case-context {
+    padding: 28px 0;
+    margin-top: 28px;
+    gap: 22px;
+  }
+
+  .case-context h2 {
+    font-size: 23px;
+    margin-top: 0;
+  }
+
+  .case-end-nav {
+    font-size: 12px;
+    gap: 20px;
+    padding: 20px 0;
   }
 }

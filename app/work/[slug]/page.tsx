@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { projects, type Project } from '@/lib/projects';
-import { Arrow, ProjectPreview, ContactLink } from '@/components/studio/shared';
+import { Arrow, ProjectPreview } from '@/components/studio/shared';
 import { Clip } from '@/components/studio/interactive';
 
 export function generateStaticParams() {
@@ -63,11 +63,11 @@ export default async function CaseStudy({
   const isProduct = ['buildplane', 'xray'].includes(project.asset);
 
   return (
-    <main id="main">
+    <main id="main" className="case-page">
       <div className="wrap">
         <a href="/work" className="back-link">← All work</a>
 
-        <section className="case-heading">
+        <section className="case-heading case-heading--compact">
           <h1>{project.name}<span className="blue">.</span></h1>
           <div className="case-heading-bottom">
             <p>{project.short}</p>
@@ -81,40 +81,24 @@ export default async function CaseStudy({
             >
               {project.liveLabel || 'Visit live site'}<Arrow diagonal />
             </a>
+            {isProduct && (
+              <a
+                className="case-demo-link"
+                href={project.asset === 'buildplane'
+                  ? 'https://buildplane.ai/workspace?template=junior-high-availability-web-app'
+                  : 'https://websitexray.com/demo'}
+                target="_blank"
+                rel="noopener noreferrer"
+                data-event="outbound_portfolio"
+                data-project={project.slug}
+              >
+                {project.asset === 'buildplane' ? 'Try the sample' : 'Try the demo'}<Arrow diagonal />
+              </a>
+            )}
           </div>
         </section>
 
-        <div
-          className={`case-hero case-media-stage visual-${project.asset}`}
-          style={{ background: project.color }}
-        >
-          <ProjectPreview
-            project={project}
-            priority
-            variant={isProduct ? 'product' : 'desktop'}
-          />
-        </div>
-
-        <section className="case-intro section">
-          <div>
-            <h2>{project.audience}</h2>
-            <dl className="project-facts">
-              <dt>Discipline</dt>
-              <dd>Design &amp; development</dd>
-              <dt>Experience</dt>
-              <dd>{project.category}</dd>
-            </dl>
-            <div className="tags">
-              {project.tags.map((tag) => <span key={tag}>{tag}</span>)}
-            </div>
-          </div>
-          <div>
-            <p className="large-copy">{project.intro}</p>
-            <p className="caption">{attribution(project)}</p>
-          </div>
-        </section>
-
-        <section className="case-details">
+        <section className="case-details case-showcase" aria-label="Desktop and mobile views">
           <div className="case-view">
             <div
               className="detail-image case-media-stage"
@@ -122,11 +106,13 @@ export default async function CaseStudy({
             >
               <ProjectPreview
                 project={project}
-                variant={isProduct ? 'product-detail' : 'detail'}
+                variant={isProduct ? 'product' : 'desktop'}
+                priority
+                sizes="(max-width: 650px) calc(100vw - 80px), 560px"
               />
             </div>
             <div className="annotation">
-              <h3>{project.decisions[0].title}</h3>
+              <h2>{project.decisions[0].title}</h2>
               <p>{project.decisions[0].text}</p>
             </div>
           </div>
@@ -136,12 +122,24 @@ export default async function CaseStudy({
               className="mobile-image case-media-stage"
               style={{ background: project.color }}
             >
-              <ProjectPreview project={project} variant="mobile" />
+              <ProjectPreview project={project} variant="mobile" priority />
             </div>
             <div className="annotation">
-              <h3>{project.decisions[1].title}</h3>
+              <h2>{project.decisions[1].title}</h2>
               <p>{project.decisions[1].text}</p>
             </div>
+          </div>
+        </section>
+
+        <section className="case-intro case-context">
+          <div>
+            <h2>About the project</h2>
+            <p>{project.audience}</p>
+            <p className="caption">Design &amp; development · {project.category}</p>
+          </div>
+          <div>
+            <p>{project.intro}</p>
+            <p className="caption">{attribution(project)}</p>
           </div>
         </section>
 
@@ -163,67 +161,16 @@ export default async function CaseStudy({
           </section>
         )}
 
-        <section className="case-live">
-          <div>
-            <h2>Out in the world.</h2>
-            <p>
-              {project.asset === 'xray'
-                ? 'Try the public demo report or explore a new audit.'
-                : project.asset === 'buildplane'
-                  ? 'Open a pre-generated example or start exploring the product.'
-                  : 'Explore the live site and see the details in context.'}
-            </p>
-            {project.asset === 'buildplane' && (
-              <a
-                className="text-link"
-                href="https://buildplane.ai/workspace?template=junior-high-availability-web-app"
-                target="_blank"
-                rel="noopener noreferrer"
-                data-event="outbound_portfolio"
-                data-project={project.slug}
-              >
-                Open the sample architecture <Arrow diagonal />
-              </a>
-            )}
-            {project.asset === 'xray' && (
-              <a
-                className="text-link"
-                href="https://websitexray.com/demo"
-                target="_blank"
-                rel="noopener noreferrer"
-                data-event="outbound_portfolio"
-                data-project={project.slug}
-              >
-                Open the demo report <Arrow diagonal />
-              </a>
-            )}
-          </div>
+        <nav className="case-end-nav" aria-label="More projects">
+          <a href="/work">← All work</a>
           <a
-            className="button"
-            href={project.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            data-event="outbound_portfolio"
-            data-project={project.slug}
+            href={`/work/${next.slug}`}
+            data-event="case_study_open"
+            data-project={next.slug}
           >
-            Visit {project.name}<Arrow diagonal />
+            <span>Next: {next.name}</span><Arrow />
           </a>
-        </section>
-
-        <a
-          className="next-project"
-          href={`/work/${next.slug}`}
-          data-event="case_study_open"
-          data-project={next.slug}
-        >
-          <span className="micro">Next project</span>
-          <h2>{next.name}</h2>
-          <Arrow diagonal />
-        </a>
-        <section className="inline-cta">
-          <h2>Something specific<br />in mind?</h2>
-          <ContactLink />
-        </section>
+        </nav>
       </div>
     </main>
   );

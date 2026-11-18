@@ -56,5 +56,44 @@
       "No browser JavaScript errors"
     ],
     "local_build": "Next.js production webpack build and TypeScript passed. Local Turbopack worker port binding is restricted; Vercel uses the unchanged default production build."
+  },
+  "project_page_revision": {
+    "checked_on": "2026-11-17",
+    "summary": "Compact title followed immediately by desktop/mobile views. Standalone hero, repeated live-site section, large next-project heading, and project CTA removed. Concise context and small All work / Next project navigation retained.",
+    "project_pages_checked": 8,
+    "viewports": [
+      [
+        1920,
+        993
+      ],
+      [
+        1366,
+        768
+      ],
+      [
+        1024,
+        768
+      ],
+      [
+        768,
+        1024
+      ],
+      [
+        390,
+        844
+      ],
+      [
+        320,
+        740
+      ]
+    ],
+    "checks": [
+      "Both complete device views fit above the fold at tested laptop and desktop sizes",
+      "No horizontal overflow or distorted/cropped screenshots",
+      "Sequential heading hierarchy and canonical metadata preserved",
+      "Compact ending on all project pages",
+      "No browser JavaScript errors"
+    ],
+    "build": "Next.js production webpack build and TypeScript passed"
   }
 }

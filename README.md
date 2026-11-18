@@ -23,11 +23,11 @@ The portfolio and credits were checked against https://oddlogic.ai/. That portfo
 
 ## Inquiries
 
-The destination is `hello@oddlogicstudio.com`. The browser validates the form and submits selected fields directly to FormSubmit’s cross-origin AJAX endpoint. It preserves text on failure and shows inline confirmation only after an affirmative response; activation-required responses count as errors. No delivery API key or runtime environment variable is needed. FormSubmit requires inbox activation for each hostname. The owner activated the canonical domain and former Sites review hostname; an earlier test arrived in spam, so mark that message Not spam and allow its actual sender.
+The destination is `hello@oddlogicstudio.com`. The browser validates the form and submits selected fields directly to FormSubmit’s cross-origin AJAX endpoint. It preserves text on failure and shows inline confirmation only after an affirmative response; activation-required responses count as errors. No delivery API key or runtime environment variable is needed. FormSubmit requires inbox activation for each hostname. The owner activated the canonical domain and former Sites review hostname, and confirmed the final Vercel production test arrived in the inbox. An earlier test arrived in spam; mark legitimate inquiries Not spam and allow their actual sender.
 
 ## Measurement
 
-Vercel Web Analytics replaces the former Cloudflare D1 endpoint. It must be enabled on the Vercel project; custom events require a supported Pro or Enterprise plan. There is no automatic plan upgrade in this repository.
+Vercel Web Analytics replaces the former Cloudflare D1 endpoint and is enabled on the Vercel project. Custom events require a supported Pro or Enterprise plan. There is no automatic plan upgrade in this repository.
 
 The browser sends allowlisted event names and valid portfolio slugs for case-study views/opens, outbound portfolio links, project-start clicks, and accepted inquiries. It never passes inquiry fields to analytics. Before sending, URL query strings and fragments are stripped. Do Not Track suppresses script injection and custom events. Tracking runs only in production deployments. See `/privacy` for provider data handling.
 
@@ -35,4 +35,4 @@ The browser sends allowlisted event names and valid portfolio slugs for case-stu
 
 `VERCEL_ENV=production` enables index/follow and allows crawlers. Preview and local builds remain noindex/disallow. Canonical and sitemap URLs target `https://oddlogicstudio.com`.
 
-`launch/DNS-SETUP.txt` contains the Vercel domain configuration and the remaining `www` DNS record. Keep the valid apex record and preserve mail/catch-all settings. The old Sites DNS instructions no longer apply. Post-migration verification is recorded in `verification.json`.
+`launch/DNS-SETUP.txt` contains the verified Vercel domain configuration. Both apex and `www` have valid TLS; `www` redirects permanently to the apex and preserves paths and query strings. Keep the DNS records and mail/catch-all settings. The old Sites DNS instructions no longer apply. Post-migration verification is recorded in `verification.json`. The contextual link from OddLogic.ai is published.

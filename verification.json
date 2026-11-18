@@ -15,23 +15,24 @@
     "mobile_navigation": "passed",
     "form_validation": "passed",
     "failure_preserves_entered_text": "Passed on published site for provider HTTP 502 and activation-required responses.",
-    "real_formsubmit_acceptance": "Prior Sites production browser test accepted; canonical Vercel form test pending",
-    "inbox_receipt": "Owner confirmed receipt; message landed in spam. Mark Not spam / allow actual sender.",
+    "real_formsubmit_acceptance": "Passed on https://oddlogicstudio.com after Vercel migration: HTTP 200, success true, inline confirmation shown.",
+    "inbox_receipt": "Owner confirmed final Vercel production test received in the inbox. An earlier test landed in spam.",
     "video_playback": "both passed; no autoplay; preload none",
     "keyboard_skip_link": "passed",
     "sitemap": "17 canonical URLs",
     "robots": "Production builds index/follow and allow; preview/local builds noindex and disallow",
     "cold_field_performance": "not measured; local throttled browser check only",
-    "analytics_persistence": "Vercel Web Analytics integration added; project enablement and production collection pending",
+    "analytics_persistence": "Owner enabled Vercel Web Analytics. Live script, pageview intake, case_study_view and start_project custom-event intake returned HTTP 200. Query/hash redaction and Do Not Track suppression verified. Dashboard persistence was not independently inspected.",
     "form_delivery_method": "Direct browser AJAX to FormSubmit; Worker delivery proxy removed after a hosted 502.",
-    "nextjs_migration_browser_qa": "Passed all 17 routes, metadata, mobile layout, images, filtering, mocked form failure/success, analytics event allowlist, URL redaction, DNT, and unknown-slug 404"
+    "nextjs_migration_browser_qa": "Passed all 17 routes, metadata, mobile layout, images, filtering, mocked form failure/success, analytics event allowlist, URL redaction, DNT, and unknown-slug 404",
+    "production_browser_qa": "All 17 public content routes return 200. Mobile layout, images, filtering, form validation, failure text preservation, actual FormSubmit acceptance, inline success, canonical metadata, robots and sitemap passed; no browser JavaScript errors.",
+    "domain_redirects": "Apex and www TLS valid. HTTP 308 to HTTPS; www 308 to apex. Paths and query strings preserved. www public DNS is correct; some negative resolver caches remained during verification.",
+    "oddlogic_backlink": "Merged to sirob511/oddlogic main at 65f0fbbb85c2b7d5cc8ef8bd43158764f482cc9d; Vercel deployment READY and public https://oddlogic.ai/ link verified."
   },
-  "launch_dependencies": [
-    "Vercel production verification",
-    "Enable Vercel Web Analytics and confirm supported custom events",
-    "Namecheap www CNAME propagation and redirect verification",
-    "Merge OddLogic.ai contextual link after public launch"
-  ],
+  "launch_dependencies": [],
   "related_pr": "https://github.com/sirob511/oddlogic/pull/1",
-  "migration": "Vercel-native Next.js"
+  "migration": "Vercel-native Next.js",
+  "production_host": "Vercel",
+  "production_url": "https://oddlogicstudio.com",
+  "application_commit": "7b7d19404ff654b1d5cc65938d302de720a0f7f0"
 }

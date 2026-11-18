@@ -15,8 +15,8 @@ A     @     216.198.79.1
 Keep this A record. The earlier ChatGPT Sites A/TXT instructions are obsolete;
 do not replace the apex record with 162.159.143.30 or 172.66.3.26.
 
-The www hostname has been attached to the same Vercel project with a permanent
-308 redirect to oddlogicstudio.com. It still needs this DNS record at Namecheap:
+The www hostname is attached to the same Vercel project with a permanent
+308 redirect to oddlogicstudio.com. This DNS record is installed at Namecheap:
 
 Type   Host  Value
 CNAME  www   a31cabf542587a07.vercel-dns-017.com
@@ -29,27 +29,23 @@ dns2.registrar-servers.com. No nameserver change is needed.
 Preserve all existing MX, mail TXT, email-forwarding, and catch-all settings.
 The inquiry inbox remains hello@oddlogicstudio.com.
 
-Current verification status:
-- Apex HTTPS reaches Vercel with a valid TLS connection.
-- Apex DNS is correct, but the deployment currently returns Vercel 404 NOT_FOUND.
-  The application runtime/build migration is being fixed; production is not yet
-  verified. The matching vercel.app hostname returns the same 404.
-- www has no public DNS record yet. The Vercel redirect is configured, but its
-  public DNS, certificate, and redirect cannot be confirmed until the CNAME is
-  added and propagated.
-
-After the CNAME propagates and the application migration is deployed:
-1. Confirm https://oddlogicstudio.com serves the site and all public routes work.
-2. Confirm https://www.oddlogicstudio.com redirects permanently to the apex and
-   preserves paths and query strings.
-3. Confirm HTTP redirects to HTTPS for both hostnames.
-4. Run a production inquiry test and confirm inbox receipt. FormSubmit is
-   activated for hello@oddlogicstudio.com; an earlier test reached spam. Mark
-   that actual message Not spam and allow its sender.
-5. Confirm canonical metadata, sitemap, and indexing settings use the production
-   apex domain.
-6. Publish the contextual link from OddLogic.ai after production is working:
-   https://github.com/sirob511/oddlogic/pull/1
+Verified launch status:
+- All 17 public content routes return HTTP 200 on the production apex domain.
+- Both hostnames have valid TLS certificates. HTTP redirects to HTTPS with 308;
+  www redirects to the apex with 308. Paths and query strings are preserved.
+- Vercel reports valid www configuration, and Google/Cloudflare DNS lookups
+  return the new CNAME. Some resolvers still cached the earlier NXDOMAIN at
+  verification time; www TLS and redirects were additionally tested against
+  its publicly resolved IP, with certificate verification enabled.
+- The final production inquiry was accepted by FormSubmit and showed inline
+  confirmation. The owner confirmed receipt in the inbox. An earlier test went
+  to spam; mark legitimate inquiries Not spam and allow their actual sender.
+- Canonical metadata and all 17 sitemap URLs use the production apex domain.
+  Production robots allow indexing; preview/local builds remain noindex.
+- The contextual OddLogic.ai link is merged onto main and publicly verified:
+  https://github.com/sirob511/oddlogic/pull/1
+- Vercel Web Analytics has been enabled by the owner. Detailed measurement
+  verification is recorded in verification.json.
 
 The earlier private ChatGPT Sites review URL is not the production host:
 https://odd-logic-studio.amusingdelta5.chatgpt.site

@@ -1,8 +1,79 @@
+import type { ReactNode } from 'react';
+import Link from 'next/link';
 import type { Project } from '@/lib/projects';
-export function Arrow({diagonal=false}:{diagonal?:boolean}) {return <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">{diagonal?<path d="M5 19 19 5M5 5h14v14"/>:<path d="M4 12h15m-6-6 6 6-6 6"/>}</svg>}
-export function Mark({className=''}:{className?:string}) {return <svg className={className} viewBox="0 0 64 64" fill="none" aria-hidden="true"><path d="M32 3v58M3 32h58M11.5 11.5l41 41m-41 0 41-41" stroke="currentColor" strokeWidth="10"/><circle cx="32" cy="32" r="8" fill="var(--paper)"/></svg>}
-export function Wordmark(){return <a className="wordmark" href="/" aria-label="Odd Logic Studio home"><Mark/><span>odd logic<span className="wordmark-sub">STUDIO</span></span></a>}
-export function ProjectImage({project,variant='desktop',priority=false,className=''}:{project:Project;variant?:string;priority?:boolean;className?:string}) {const key=`${project.asset}-${variant}`;return <img className={className} src={`/images/${key}.webp`} srcSet={variant==='mobile'?undefined:`/images/${key}-720.webp 720w, /images/${key}.webp 1440w`} sizes="(max-width: 700px) 100vw, (max-width: 1100px) 90vw, 75vw" width={variant==='mobile'?390:1440} height={variant==='mobile'?844:1000} alt={`${project.name} — ${variant==='mobile'?'mobile view':variant.includes('detail')?'detail of the live experience':variant==='product'?'live product interface':'website homepage'}`} loading={priority?'eager':'lazy'} fetchPriority={priority?'high':'auto'}/>} 
-export function ProjectCard({project,index=0,featured=false}:{project:Project;index?:number;featured?:boolean}) {return <article className={`project-card ${featured?'project-wide':''}`}><a className={`project-visual visual-${project.asset}`} style={{background:project.color}} href={`/work/${project.slug}`} data-event="case_study_open" data-project={project.slug} aria-label={`View ${project.name} case study`}><ProjectImage project={project} variant={['buildplane','xray'].includes(project.asset)?'product':'desktop'}/><span className="project-open"><Arrow diagonal/></span></a><div className="project-caption"><div><span className="micro">{String(index+1).padStart(2,'0')} / {project.category}</span><h3><a href={`/work/${project.slug}`} data-event="case_study_open" data-project={project.slug}>{project.name}</a></h3><p>{project.short}</p></div><span className="project-credit">{project.credit}</span></div></article>}
-export function Footer(){return <footer className="footer wrap"><div className="footer-main"><Wordmark/><p>Independent minds.<br/>Thoughtful digital work.<br/><a className="footer-email" href="mailto:hello@oddlogicstudio.com">hello@oddlogicstudio.com</a></p><div className="footer-links"><a href="/work">Work</a><a href="/services">Services</a><a href="/about">About</a><a href="/contact" data-event="start_project">Start a project <span>↗</span></a></div></div><div className="footer-bottom"><span>© {new Date().getFullYear()} Odd Logic Studio</span><span>Designed with character. Built with care.</span><a href="/privacy">Privacy</a></div></footer>}
-export function ContactLink({children='Start a project',className='button'}:{children?:React.ReactNode;className?:string}){return <a href="/contact" className={className} data-event="start_project">{children}<Arrow diagonal/></a>}
+
+export function Arrow({ diagonal = false }: { diagonal?: boolean }) {
+  return <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">{diagonal ? <path d="M5 19 19 5M5 5h14v14" /> : <path d="M4 12h15m-6-6 6 6-6 6" />}</svg>;
+}
+
+export function Mark({ className = '' }: { className?: string }) {
+  return <svg className={className} viewBox="0 0 64 64" fill="none" aria-hidden="true"><path d="M32 3v58M3 32h58M11.5 11.5l41 41m-41 0 41-41" stroke="currentColor" strokeWidth="10" /><circle cx="32" cy="32" r="8" fill="var(--paper)" /></svg>;
+}
+
+export function Wordmark() {
+  return <Link className="wordmark" href="/" aria-label="Odd Logic Studio home"><Mark /><span>odd logic<span className="wordmark-sub">STUDIO</span></span></Link>;
+}
+
+type ProjectImageProps = {
+  project: Project;
+  variant?: string;
+  priority?: boolean;
+  className?: string;
+  sizes?: string;
+};
+
+export function ProjectImage({ project, variant = 'desktop', priority = false, className = '', sizes = '(max-width: 700px) 100vw, (max-width: 1100px) 90vw, 1100px' }: ProjectImageProps) {
+  const key = `${project.asset}-${variant}`;
+  const mobile = variant === 'mobile';
+  const description = mobile ? 'mobile view' : variant.includes('detail') ? 'detail of the live experience' : variant === 'product' ? 'live product interface' : 'website homepage';
+
+  return <img className={className} src={`/images/${key}.webp`} srcSet={mobile ? undefined : `/images/${key}-720.webp 720w, /images/${key}.webp 1440w`} sizes={mobile ? undefined : sizes} width={mobile ? 390 : 1440} height={mobile ? 844 : 1000} alt={`${project.name} — ${description}`} loading={priority ? 'eager' : 'lazy'} fetchPriority={priority ? 'high' : 'auto'} decoding="async" />;
+}
+
+type ProjectPreviewProps = ProjectImageProps & {
+  device?: 'desktop' | 'phone';
+};
+
+export function ProjectPreview({ project, variant = 'desktop', device = variant === 'mobile' ? 'phone' : 'desktop', priority = false, className = '', sizes }: ProjectPreviewProps) {
+  const image = <ProjectImage project={project} variant={variant} priority={priority} sizes={sizes} className="project-device-image" />;
+
+  if (device === 'phone') {
+    return <div className={`project-preview project-preview--phone ${className}`}>
+      <div className="project-device-phone">
+        <div className="project-phone-top" aria-hidden="true"><span /></div>
+        <div className="project-phone-screen">{image}</div>
+        <div className="project-phone-bottom" aria-hidden="true"><span /></div>
+      </div>
+    </div>;
+  }
+
+  const address = new URL(project.url).hostname.replace(/^www\./, '');
+  return <div className={`project-preview project-preview--desktop ${className}`}>
+    <div className="project-device-monitor">
+      <div className="project-monitor-screen">
+        <div className="project-browser-bar" aria-hidden="true"><span className="project-browser-controls"><i /><i /><i /></span><span className="project-browser-address">{address}</span><span className="project-browser-menu">···</span></div>
+        {image}
+      </div>
+      <span className="project-monitor-light" aria-hidden="true" />
+    </div>
+    <div className="project-monitor-stand" aria-hidden="true"><span /></div>
+  </div>;
+}
+
+export function ProjectCard({ project }: { project: Project; index?: number; featured?: boolean }) {
+  return <article className="project-card project-card--equal">
+    <Link className="project-visual project-preview-card" style={{ background: project.color }} href={`/work/${project.slug}`} data-event="case_study_open" data-project={project.slug} aria-label={`View ${project.name} case study`}>
+      <ProjectPreview project={project} variant={['buildplane', 'xray'].includes(project.asset) ? 'product' : 'desktop'} sizes="(max-width: 650px) calc(100vw - 88px), (max-width: 1100px) 42vw, 560px" />
+      <span className="project-open"><Arrow diagonal /></span>
+    </Link>
+    <div className="project-caption"><div><h3><Link href={`/work/${project.slug}`} data-event="case_study_open" data-project={project.slug}>{project.name}</Link></h3><p>{project.short}</p></div></div>
+  </article>;
+}
+
+export function Footer() {
+  return <footer className="footer wrap"><div className="footer-main"><Wordmark /><p>Independent design & development.<br /><a className="footer-email" href="mailto:hello@oddlogicstudio.com">hello@oddlogicstudio.com</a></p><div className="footer-links"><Link href="/">Home</Link><Link href="/work">Work</Link><Link href="/services">Services</Link><Link href="/about">About</Link><Link href="/contact" data-event="start_project">Start a project <span>↗</span></Link></div></div><div className="footer-bottom"><span>© {new Date().getFullYear()} Odd Logic Studio</span><Link href="/privacy">Privacy</Link></div></footer>;
+}
+
+export function ContactLink({ children = 'Start a project', className = 'button' }: { children?: ReactNode; className?: string }) {
+  return <Link href="/contact" className={className} data-event="start_project">{children}<Arrow diagonal /></Link>;
+}

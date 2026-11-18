@@ -34,5 +34,27 @@
   "migration": "Vercel-native Next.js",
   "production_host": "Vercel",
   "production_url": "https://oddlogicstudio.com",
-  "application_commit": "7b7d19404ff654b1d5cc65938d302de720a0f7f0"
+  "application_commit": "7b7d19404ff654b1d5cc65938d302de720a0f7f0",
+  "design_revision": {
+    "checked_on": "2026-11-17",
+    "summary": "Offer-led homepage with retained Custom websites / Anything but ordinary headline; Home navigation; compact page headings; equally sized projects; full screenshots in monitor and phone frames; decorative copy removed.",
+    "routes_checked": 17,
+    "viewport_widths": [
+      320,
+      390,
+      768,
+      1440
+    ],
+    "rendered_image_checks": 168,
+    "checks": [
+      "No horizontal overflow",
+      "Full image aspect ratios preserved without CSS cropping or translation",
+      "Case-study hero starts above the fold",
+      "Equal project preview dimensions",
+      "Desktop and mobile Home navigation",
+      "Portfolio category filters",
+      "No browser JavaScript errors"
+    ],
+    "local_build": "Next.js production webpack build and TypeScript passed. Local Turbopack worker port binding is restricted; Vercel uses the unchanged default production build."
+  }
 }

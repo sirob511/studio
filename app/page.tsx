@@ -1,4 +1,56 @@
-import {projects,services} from '@/lib/projects';
-import {Arrow,Mark,ProjectCard,ProjectImage,ContactLink} from '@/components/studio/shared';
+import {services} from '@/lib/projects';
+import {Arrow, ContactLink} from '@/components/studio/shared';
 import {ContactForm} from '@/components/studio/interactive';
-export default function Home(){return <main id="main"><section className="hero wrap"><div className="eyebrow"><span className="status-dot"/> Independent design & development studio</div><div className="hero-copy"><h1>Custom websites.<br/><span className="hero-offset">Anything but ordinary<span className="blue">.</span></span></h1><div className="hero-intro"><p>We design and build websites and web applications for people with something specific in mind.</p><a className="text-link" href="#selected-work">View work <Arrow/></a></div></div><a href="/work/onesuitcase-travel" className="hero-project" data-event="case_study_open" data-project="onesuitcase-travel"><div className="hero-project-label"><span><span className="micro">Featured project / 01</span><strong>OneSuitcase Travel</strong></span><span className="hero-case">Explore the project <Arrow diagonal/></span></div><div className="hero-project-image"><picture><source media="(max-width:650px)" srcSet="/images/onesuitcase-mobile.webp"/><ProjectImage project={projects[0]} priority/></picture><div className="hero-image-tag">A little wanderlust. A lot of character. <Arrow diagonal/></div></div></a><div className="hero-bottom"><span>Distinctive by design. Thoughtful by nature.</span><a href="#selected-work" aria-label="Scroll to selected work">Scroll to explore <span>↓</span></a></div></section><section id="selected-work" className="section wrap"><div className="section-heading"><div><span className="micro blue">01 / Selected work</span><h2>Different ideas.<br/>Same attention to detail.</h2></div><p>From a place worth visiting to a tool worth using.<br/>A few things we’ve brought to life.</p></div><div className="home-work-grid"><ProjectCard project={projects[1]} index={1}/><ProjectCard project={projects[2]} index={2}/><ProjectCard project={projects[3]} index={3} featured/></div><div className="work-more"><p>There’s more where that came from.</p><a className="text-link" href="/work">Explore all work <span className="count">08</span><Arrow/></a></div></section><section className="services-section"><div className="wrap section"><div className="section-heading"><div><span className="micro blue">02 / What we do</span><h2>Good design.<br/>Serious engineering.</h2></div><p>One studio, from first sketch to final build.<br/>The look, the feel, and everything underneath.</p></div><div className="service-list">{services.map(s=><a className="service-row" href={`/services/${s.slug}`} key={s.slug}><span className="micro">{s.number}</span><h3>{s.name}</h3><p>{s.description}</p><Arrow diagonal/></a>)}</div><a href="/services" className="text-link service-link">How we can help <Arrow/></a></div></section><section className="about-section wrap section"><div className="studio-art" aria-label="Odd Logic Studio graphic"><div className="art-top micro">A different way of thinking.</div><Mark/><div className="art-bottom"><span>ODD THINKING.<br/>SOUND LOGIC.</span><span className="micro">Design +<br/>Development</span></div></div><div className="about-copy"><span className="micro blue">03 / A small introduction</span><h2>A direct line<br/>to the person<br/>building it.</h2><p>I’m Boris, the founder of Odd Logic Studio. I bring a design-minded approach and an AWS engineering background to the same table.</p><p>That means we can talk about the character of your website and the systems behind it, in the same conversation.</p><a href="/about" className="text-link">Meet the studio <Arrow/></a></div></section><section className="contact-section" id="contact"><div className="wrap section contact-layout"><div className="contact-copy"><span className="micro blue">04 / Your idea goes here</span><h2>What do you<br/>have in mind<span className="blue">?</span></h2><p>A new business. A better website. A tool you wish existed. Tell us a little about it.</p><a className="text-link" href="mailto:hello@oddlogicstudio.com">hello@oddlogicstudio.com ↗</a><span className="contact-note"><Mark/> A good conversation is a good place to start.</span></div><ContactForm/></div></section></main>}
+
+const serviceCopy: Record<string, string> = {
+  'custom-websites': 'A website with its own character, built around your business and what your customers need to do.',
+  'interactive-web-experiences': 'Maps, guides, directories, and tools that help people explore, find an answer, or make a decision.',
+  'web-applications': 'Portals, dashboards, and custom workflows that connect your data and make complicated tasks easier.',
+};
+
+export default function Home() {
+  return (
+    <main id="main">
+      <section className="home-intro wrap">
+        <p className="eyebrow">Independent web design & development</p>
+        <h1>Custom websites.<br/>Anything but ordinary<span className="blue">.</span></h1>
+        <div className="home-intro-bottom">
+          <p>Odd Logic Studio designs and builds distinctive websites and web applications. From a new home for your business to a custom tool that makes work easier.</p>
+          <div className="home-actions">
+            <ContactLink/>
+            <a className="text-link" href="/work">View work <Arrow/></a>
+          </div>
+        </div>
+      </section>
+      <section className="home-services wrap" aria-labelledby="home-services-title">
+        <h2 id="home-services-title">What we can build for you</h2>
+        <div className="home-service-grid">
+          {services.map(service => (
+            <a className="home-service" href={`/services/${service.slug}`} key={service.slug}>
+              <h3>{service.name}<Arrow diagonal/></h3>
+              <p>{serviceCopy[service.slug]}</p>
+            </a>
+          ))}
+        </div>
+      </section>
+      <section className="home-about wrap section">
+        <h2>A direct line to the person building it.</h2>
+        <div>
+          <p>I’m Boris, the founder of Odd Logic Studio. I bring design and an AWS engineering background to the same project, so the way your website looks and the way it works are considered together.</p>
+          <p>You work directly with me, from the first conversation through launch.</p>
+          <a href="/about" className="text-link">Meet the studio <Arrow/></a>
+        </div>
+      </section>
+      <section className="contact-section" id="contact">
+        <div className="wrap section contact-layout">
+          <div className="contact-copy">
+            <h2>What do you have in mind<span className="blue">?</span></h2>
+            <p>A new business. A better website. A tool you wish existed. A short introduction is all we need to start.</p>
+            <a className="text-link" href="mailto:hello@oddlogicstudio.com">hello@oddlogicstudio.com <Arrow diagonal/></a>
+          </div>
+          <ContactForm/>
+        </div>
+      </section>
+    </main>
+  );
+}

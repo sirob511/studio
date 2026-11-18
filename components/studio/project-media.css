@@ -1,0 +1,264 @@
+/* The screen sets its own height so every capture remains visible in full. */
+.project-preview {
+  min-width: 0;
+  position: relative;
+  isolation: isolate;
+}
+
+.project-preview--desktop {
+  width: 100%;
+  max-width: 1120px;
+  margin-inline: auto;
+}
+
+.project-device-monitor {
+  position: relative;
+  padding: 7px 7px 12px;
+  border: 1px solid #282c29;
+  border-radius: 11px;
+  background: linear-gradient(135deg, #494e48, #272c28);
+  box-shadow: 0 12px 24px #18251b16, 0 1px 2px #18251b18;
+}
+
+.project-monitor-screen {
+  border: 1px solid #1c211d;
+  border-radius: 4px;
+  background: #fff;
+}
+
+.project-browser-bar {
+  min-width: 0;
+  height: clamp(20px, 2.3vw, 28px);
+  padding-inline: 10px;
+  border-bottom: 1px solid #e3e4df;
+  border-radius: 3px 3px 0 0;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #f5f5f1;
+  color: #72776f;
+}
+
+.project-browser-controls {
+  display: flex;
+  gap: 4px;
+  flex: 0 0 auto;
+}
+
+.project-browser-controls i {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #bec3b9;
+}
+
+.project-browser-address {
+  min-width: 0;
+  margin-inline: auto;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: clamp(6px, .65vw, 9px);
+  font-weight: 400;
+  letter-spacing: .025em;
+  line-height: 1;
+}
+
+.project-browser-menu {
+  font-size: 14px;
+  letter-spacing: 1px;
+  line-height: 1;
+}
+
+.project-preview img.project-device-image {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  min-height: 0;
+  aspect-ratio: auto;
+  object-fit: contain;
+  object-position: center;
+  transform: none;
+  box-shadow: none;
+  border: 0;
+  border-radius: 0;
+}
+
+.project-monitor-light {
+  position: absolute;
+  bottom: 4px;
+  left: calc(50% - 1.5px);
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: #858d81;
+}
+
+.project-monitor-stand {
+  position: relative;
+  width: 29%;
+  height: clamp(24px, 3vw, 45px);
+  margin-inline: auto;
+}
+
+.project-monitor-stand::before {
+  content: '';
+  position: absolute;
+  inset: 0 30% 5px;
+  background: linear-gradient(#747b71, #a9aea5 85%);
+  clip-path: polygon(14% 0, 86% 0, 100% 100%, 0 100%);
+}
+
+.project-monitor-stand span {
+  position: absolute;
+  inset: auto 0 0;
+  height: 6px;
+  border: 1px solid #8e9589;
+  border-top-color: #bec3b8;
+  border-radius: 50% 50% 3px 3px;
+  background: linear-gradient(#c4c9be, #9aa292);
+  box-shadow: 0 6px 10px #20282014;
+}
+
+.project-preview--phone {
+  width: min(100%, 280px);
+  margin-inline: auto;
+}
+
+.project-device-phone {
+  padding: 0 7px;
+  border: 1px solid #343a34;
+  border-radius: 29px;
+  background: linear-gradient(125deg, #41483f, #20271f);
+  box-shadow: 0 16px 30px #18251b1c, 0 2px 3px #18251b22;
+}
+
+.project-phone-top {
+  height: 21px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.project-phone-top span {
+  width: 32px;
+  height: 4px;
+  border-radius: 5px;
+  background: #161b15;
+  box-shadow: 0 1px 0 #72796b55;
+}
+
+.project-phone-screen {
+  background: #fff;
+}
+
+.project-phone-bottom {
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.project-phone-bottom span {
+  width: 54px;
+  height: 3px;
+  border-radius: 3px;
+  background: #858e7c;
+}
+
+.project-card.project-card--equal {
+  grid-column: auto;
+  min-width: 0;
+}
+
+.project-card .project-visual.project-preview-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(24px, 3.4vw, 46px) clamp(20px, 2.8vw, 38px);
+  height: auto;
+  min-height: 0;
+  aspect-ratio: auto;
+  overflow: visible;
+  border: 1px solid #20201e08;
+  border-radius: 5px;
+}
+
+.project-preview-card .project-open {
+  width: 32px;
+  height: 32px;
+  right: 12px;
+  bottom: 12px;
+  background: #faf9f5ed;
+}
+
+.project-preview-card .project-open svg {
+  width: 17px;
+  height: 17px;
+}
+
+.project-card--equal .project-caption {
+  display: block;
+}
+
+.project-card--equal .project-caption h3 {
+  font-size: clamp(22px, 2vw, 27px);
+  overflow-wrap: anywhere;
+}
+
+/* Add this to a legacy image wrapper when replacing its image with a preview. */
+.project-media-stage,
+.case-media-stage,
+.case-hero.case-media-stage,
+.detail-image.case-media-stage,
+.mobile-image.case-media-stage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: auto;
+  min-height: 0;
+  aspect-ratio: auto;
+  overflow: visible;
+  padding: clamp(24px, 4.5vw, 64px);
+}
+
+.project-media-stage > .project-preview,
+.case-media-stage > .project-preview {
+  flex: 0 1 auto;
+}
+
+@media (max-width: 650px) {
+  .project-device-monitor {
+    padding: 5px 5px 10px;
+    border-radius: 8px;
+  }
+
+  .project-browser-bar {
+    padding-inline: 7px;
+    gap: 7px;
+  }
+
+  .project-card .project-visual.project-preview-card {
+    padding: 24px 20px 30px;
+  }
+
+  .project-preview-card .project-open {
+    width: 28px;
+    height: 28px;
+    right: 8px;
+    bottom: 8px;
+  }
+
+  .project-preview--phone {
+    width: min(100%, 245px);
+  }
+
+  .project-media-stage,
+.case-media-stage,
+.case-hero.case-media-stage,
+.detail-image.case-media-stage,
+.mobile-image.case-media-stage {
+    padding: 28px 20px;
+  }
+}

@@ -2,6 +2,10 @@
 
 A custom studio portfolio built with React, Vinext, and a Cloudflare Worker through Sites.
 
+## Repository
+
+The project lives directly in `/home/boris/studio` on `main`, with GitHub origin `sirob511/studio`. There is no nested repository. Sites publication uses the same committed source history. DNS values and remaining launch work are in `launch/DNS-SETUP.txt`.
+
 ## Run locally
 
 Use Node 24 (Node 22.13+ is required by the starter). Install with the Sites dependency helper, then `npm run dev`. Production builds use the Sites `scripts/build-site.mjs` helper. `npm run start` runs the built Worker.

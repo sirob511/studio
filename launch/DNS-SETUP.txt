@@ -1,0 +1,44 @@
+Odd Logic Studio — custom-domain setup
+
+The private review site is published at:
+https://odd-logic-studio.amusingdelta5.chatgpt.site
+
+oddlogicstudio.com has been added to Sites and is awaiting these DNS records.
+The current nameservers are dns1.registrar-servers.com and dns2.registrar-servers.com.
+
+Type  Host                       Value
+A     @                          162.159.143.30
+A     @                          172.66.3.26
+TXT   _openai-site-verification   openai-site-verification=GzY6oHBpajNDkdrL7oEqlD4LOkHKadzkU2UXgGaa1Ck
+TXT   _cf-custom-hostname         a4063048-2f36-4971-94cc-284fe742e961
+
+Replace the existing apex A record (216.198.79.1) with the two A records above.
+Use the provider's automatic/default TTL. Keep all existing MX, mail TXT,
+email-forwarding, and catch-all settings intact.
+
+These host values are relative to oddlogicstudio.com; do not duplicate the domain
+suffix if your DNS editor adds it automatically.
+
+After DNS propagation:
+1. Refresh custom-domain verification in Sites and confirm HTTPS is active.
+2. Review the private site, then make its audience public when ready to launch.
+3. Change the project's noindex/disallow settings to index/follow and allow.
+4. Configure and verify the www hostname redirect to the apex hostname.
+5. Merge the prepared contextual-link PR after the domain is public:
+   https://github.com/sirob511/oddlogic/pull/1
+
+Email:
+FormSubmit is activated for hello@oddlogicstudio.com. The final published browser form was accepted by FormSubmit (HTTP 200, success true)
+and showed its inline confirmation. Activation and delivery-error responses were
+verified to preserve the entered text. The owner confirmed an earlier test in spam.
+Mark the actual message Not spam and allow its sender before relying on inquiries.
+
+Site source:
+/home/boris/studio
+
+Validation:
+17 routes reviewed at 320, 390, 768, and 1440 pixels. Production build and TypeScript
+passed. Project filtering, mobile menu, field validation, failed-send preservation,
+real email acceptance, inline success, video playback, and analytics persistence
+were checked. Throttled browser loading was checked locally; this is not a field
+performance measurement.

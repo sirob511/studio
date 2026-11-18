@@ -12,25 +12,26 @@ export default function Home() {
   return (
     <main id="main">
       <section className="home-intro wrap">
-        <p className="eyebrow">Independent web design & development</p>
         <h1>Custom websites.<br/>Anything but ordinary<span className="blue">.</span></h1>
         <div className="home-intro-bottom">
-          <p>Odd Logic Studio designs and builds distinctive websites and web applications. From a new home for your business to a custom tool that makes work easier.</p>
+          <p>Distinctive websites and useful web applications, designed and built around your business.</p>
           <div className="home-actions">
             <ContactLink/>
             <a className="text-link" href="/work">View work <Arrow/></a>
           </div>
         </div>
       </section>
-      <section className="home-services wrap" aria-labelledby="home-services-title">
-        <h2 id="home-services-title">What we can build for you</h2>
-        <div className="home-service-grid">
-          {services.map(service => (
-            <a className="home-service" href={`/services/${service.slug}`} key={service.slug}>
-              <h3>{service.name}<Arrow diagonal/></h3>
-              <p>{serviceCopy[service.slug]}</p>
-            </a>
-          ))}
+      <section className="home-services" aria-labelledby="home-services-title">
+        <div className="wrap">
+          <h2 id="home-services-title">What we can build for you</h2>
+          <div className="home-service-grid">
+            {services.map(service => (
+              <a className="home-service" href={`/services/${service.slug}`} key={service.slug}>
+                <h3>{service.name}<Arrow diagonal/></h3>
+                <p>{serviceCopy[service.slug]}</p>
+              </a>
+            ))}
+          </div>
         </div>
       </section>
       <section className="home-about wrap section">

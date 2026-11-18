@@ -118,5 +118,28 @@
       "24 intercepted provider submissions; no real email sent"
     ],
     "build": "Next.js production webpack build and TypeScript passed"
+  },
+  "homepage_hierarchy_revision": {
+    "checked_on": "2026-11-17",
+    "summary": "Headline, supporting copy, and primary CTA grouped in one reading flow. Homepage header has a plain Contact link. Services form a separate tinted section with responsive rows on tablet.",
+    "viewport_widths": [
+      320,
+      390,
+      651,
+      768,
+      1366,
+      1440,
+      1920
+    ],
+    "checks": [
+      "Exactly one Start a project link in the first viewport",
+      "No horizontal overflow or browser JavaScript errors",
+      "Homepage mobile menu includes Contact and opens/closes",
+      "Hero CTA reaches the contact form",
+      "Inner pages retain header CTA; return home restores quiet navigation",
+      "Three service links retained",
+      "Visual review at desktop, tablet, and phone sizes"
+    ],
+    "build": "Next.js production webpack build and TypeScript passed; final tablet CSS adjustment visually reviewed in browser"
   }
 }

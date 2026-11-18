@@ -1,10 +1,41 @@
 'use client';
 import {useEffect,useId,useRef,useState} from 'react';
 import {usePathname} from 'next/navigation';
+import Link, {type LinkProps} from 'next/link';
 import {inject,track as trackVercelEvent} from '@vercel/analytics';
 import {projects} from '@/lib/projects';
 import {Arrow,Mark,Wordmark} from './shared';
-export function Header(){const [open,setOpen]=useState(false);const path=usePathname();useEffect(()=>setOpen(false),[path]);return <header className="header wrap"><Wordmark/><nav className={open?'nav nav-open':'nav'} aria-label="Main navigation"><a href="/" aria-current={path==='/'?'page':undefined}>Home</a><a href="/work" aria-current={path.startsWith('/work')?'page':undefined}>Work</a><a href="/services" aria-current={path.startsWith('/services')?'page':undefined}>Services</a><a href="/about" aria-current={path==='/about'?'page':undefined}>About</a></nav><a href="/contact" className="nav-cta" data-event="start_project">Start a project <Arrow diagonal/></a><button className="menu-toggle" aria-expanded={open} aria-label={open?'Close menu':'Open menu'} onClick={()=>setOpen(!open)}>{open?'Close':'Menu'}<span>{open?'−':'+'}</span></button></header>}
+const navigationItems = [
+ {href:'/',label:'Home'},
+ {href:'/work',label:'Work'},
+ {href:'/services',label:'Services'},
+ {href:'/about',label:'About'},
+];
+
+export function Header(){
+ const path=usePathname();
+ return <HeaderNavigation key={path} path={path}/>;
+}
+
+function HeaderNavigation({path}:{path:string}){
+ const [open,setOpen]=useState(false);
+ function navigate(href:string):NonNullable<LinkProps['onNavigate']>{
+  return event=>{
+   // Section links still navigate back from a project to its Work overview.
+   if(path===href)event.preventDefault();
+   setOpen(false);
+  };
+ }
+ return <header className="header wrap">
+  <Wordmark/>
+  <nav className={open?'nav nav-open':'nav'} aria-label="Main navigation">
+   {navigationItems.map(({href,label})=><Link key={href} href={href} onNavigate={navigate(href)} aria-current={path===href||(href!=='/'&&path.startsWith(`${href}/`))?'page':undefined}>{label}</Link>)}
+  </nav>
+  <Link href="/contact" className="nav-cta" data-event="start_project" onNavigate={navigate('/contact')}>Start a project <Arrow diagonal/></Link>
+  <button className="menu-toggle" aria-expanded={open} aria-label={open?'Close menu':'Open menu'} onClick={()=>setOpen(!open)}>{open?'Close':'Menu'}<span>{open?'−':'+'}</span></button>
+ </header>;
+}
+
 let measurementEnabled=false;
 const eventNames=new Set(['case_study_open','case_study_view','outbound_portfolio','start_project','inquiry_success']);
 export function Analytics({enabled}:{enabled:boolean}){

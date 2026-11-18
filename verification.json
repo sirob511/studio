@@ -334,5 +334,23 @@
       "Homepage retains one Start a project header CTA and a View work hero link"
     ],
     "build": "Next.js production webpack build and TypeScript passed"
+  },
+  "active_navigation_revision": {
+    "checked_on": "2026-11-17",
+    "summary": "Header tabs and project CTA use client-side links; activating the exact current page stays put. Mobile menu state resets on route changes and closes on current-page activation.",
+    "viewport_widths": [
+      390,
+      1440
+    ],
+    "checks": [
+      "Mouse and Enter activation of each current tab and Contact CTA do not reload or add browser history",
+      "A single document request covers navigation through all header destinations; original document identity remains intact",
+      "Unsent Home and Contact form text survives repeated current-page activation",
+      "Work tab on a case study still navigates to the Work overview",
+      "Ctrl-click opens a new tab normally",
+      "Mobile menu closes on current-page and other-page activation, logo navigation, and browser Back",
+      "No browser JavaScript errors or horizontal overflow; no form submissions"
+    ],
+    "build": "Next.js production webpack build, TypeScript, and scoped interactive.tsx lint passed"
   }
 }

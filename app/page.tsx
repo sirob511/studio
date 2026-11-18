@@ -4,7 +4,7 @@ import {ContactForm} from '@/components/studio/interactive';
 
 const serviceCopy: Record<string, string> = {
   'custom-websites': 'A website with its own character, built around your business and what your customers need to do.',
-  'interactive-web-experiences': 'Maps, guides, directories, and tools that help people explore, find an answer, or make a decision.',
+  'interactive-web-experiences': 'Illustrated worlds, guides, maps, and tools that invite people to explore and take part.',
   'web-applications': 'Portals, dashboards, and custom workflows that connect your data and make complicated tasks easier.',
 };
 

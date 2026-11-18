@@ -126,6 +126,55 @@
   margin-inline: auto;
 }
 
+.service-device-pair {
+  display: grid;
+  grid-template-columns: minmax(0, 2.6fr) minmax(0, 1fr);
+  align-items: end;
+  gap: 18px;
+}
+
+.service-device-pair .project-preview--phone {
+  width: min(100%, 140px);
+}
+
+.service-device-pair .project-device-phone {
+  padding-inline: 4px;
+  border-radius: 18px;
+}
+
+.service-device-pair .project-phone-top,
+.service-device-pair .project-phone-bottom {
+  height: 14px;
+}
+
+.service-device-pair .project-phone-top span {
+  width: 22px;
+  height: 3px;
+}
+
+.service-device-pair .project-phone-bottom span {
+  width: 32px;
+}
+
+@media (max-width: 900px) {
+  .services-detail .service-detail {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 28px;
+  }
+
+  .services-detail .service-device-example {
+    width: 100%;
+    max-width: 620px;
+  }
+}
+
+@media (max-width: 500px) {
+  .service-device-pair {
+    grid-template-columns: minmax(0, 1fr) 82px;
+    gap: 12px;
+  }
+}
+
 .project-device-phone {
   padding: 0 7px;
   border: 1px solid #343a34;

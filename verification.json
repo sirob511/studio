@@ -165,5 +165,26 @@
       "Responsive desktop row, tablet grid, and narrow-phone stack"
     ],
     "build": "Next.js production webpack build and TypeScript passed"
+  },
+  "services_mobile_revision": {
+    "checked_on": "2026-11-17",
+    "summary": "Services showcase desktop and phone versions of OneSuitcase Travel and A Planet of Her Own. Planet leads Interactive web experiences; descriptions include illustrated experiences and responsive mobile websites.",
+    "viewport_widths": [
+      320,
+      390,
+      768,
+      900,
+      1024,
+      1440,
+      1920
+    ],
+    "checks": [
+      "All service preview images load with contain sizing and intrinsic height",
+      "No horizontal overflow or browser JavaScript errors",
+      "Phone and desktop previews link to the corresponding case study",
+      "Planet leads the interactive detail page and its social image",
+      "Application preview retains the BuildPlane product canvas"
+    ],
+    "build": "Next.js production webpack build and TypeScript passed"
   }
 }

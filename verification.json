@@ -231,5 +231,27 @@
       "Error, success, and reset appearance checked with two intercepted submissions; no real email sent"
     ],
     "build": "Next.js production webpack build and TypeScript passed"
+  },
+  "studio_positioning_revision": {
+    "checked_on": "2026-11-17",
+    "summary": "Customer-facing copy emphasizes design and engineering, logo and visual identity through complex business logic, and working directly with one person. Boris remains in the About introduction; AWS is retained only where relevant to the BuildPlane project.",
+    "routes_checked": [
+      "/",
+      "/about",
+      "/services",
+      "/contact"
+    ],
+    "viewport_widths": [
+      320,
+      390,
+      1440
+    ],
+    "checks": [
+      "All four pages return 200 with no horizontal overflow or browser JavaScript errors",
+      "Homepage headline preserved; revised copy and contact note visually checked on desktop and mobile",
+      "Custom websites includes logo design and visual identity; applications scope includes business logic",
+      "About and Services metadata match the revised positioning"
+    ],
+    "build": "Next.js production webpack build and TypeScript passed; scoped lint passed for About, Contact, Services, and project data"
   }
 }

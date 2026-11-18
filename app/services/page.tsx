@@ -2,8 +2,8 @@ import type {Metadata} from 'next';
 import {services,projects} from '@/lib/projects';
 import {Arrow,ProjectPreview,ContactLink} from '@/components/studio/shared';
 import './services.css';
-export const metadata:Metadata={title:'Web Design & Development Services',description:'Custom websites, interactive web experiences, and web applications. Design and engineering together, from the first idea through launch.',alternates:{canonical:'/services'}};
-export default function Services(){return <main id="main" className="wrap"><section className="page-heading"><h1>Design & development<span className="blue">.</span></h1><p>Custom websites, interactive experiences, and web applications. One studio, from the first idea through launch.</p></section><div className="services-detail">{services.map(service => {
+export const metadata:Metadata={title:'Web Design & Development Services',description:'Logo design, visual identity, custom websites, interactive experiences, and web applications. Design and engineering with one direct point of contact.',alternates:{canonical:'/services'}};
+export default function Services(){return <main id="main" className="wrap"><section className="page-heading"><h1>Design & development<span className="blue">.</span></h1><p>From logo design and visual identity to custom websites, interactive experiences, and complex web applications. Design and engineering, with one person from idea through launch.</p></section><div className="services-detail">{services.map(service => {
  const project = projects.find(project => project.slug === service.projects[0])!;
  const isApplication = service.slug === 'web-applications';
  return <section className="service-detail" id={service.slug} aria-labelledby={`${service.slug}-title`} key={service.slug}>

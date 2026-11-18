@@ -3,7 +3,7 @@ import {Arrow, ContactLink} from '@/components/studio/shared';
 import {ContactForm} from '@/components/studio/interactive';
 
 const serviceCopy: Record<string, string> = {
-  'custom-websites': 'A website with its own character, built around your business and what your customers need to do.',
+  'custom-websites': 'From logo design and visual identity to a website built around your business and your customers.',
   'interactive-web-experiences': 'Illustrated worlds, guides, maps, and tools that invite people to explore and take part.',
   'web-applications': 'Portals, dashboards, and custom workflows that connect your data and make complicated tasks easier.',
 };
@@ -37,8 +37,8 @@ export default function Home() {
       <section className="home-about wrap section">
         <h2>A direct line to the person building it.</h2>
         <div>
-          <p>I’m Boris, the founder of Odd Logic Studio. I bring design and an AWS engineering background to the same project, so the way your website looks and the way it works are considered together.</p>
-          <p>You work directly with me, from the first conversation through launch.</p>
+          <p>I bring design and engineering together, from logo design and visual identity to the complex business logic behind a website or application.</p>
+          <p>You work directly with me from the first conversation through launch. The person you talk to is the person making the design and technical decisions.</p>
           <a href="/about" className="text-link">Meet the studio <Arrow/></a>
         </div>
       </section>

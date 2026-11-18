@@ -3,7 +3,7 @@ import {useEffect,useId,useRef,useState} from 'react';
 import {usePathname} from 'next/navigation';
 import {inject,track as trackVercelEvent} from '@vercel/analytics';
 import {projects} from '@/lib/projects';
-import {Arrow,Mark,Wordmark,ProjectCard} from './shared';
+import {Arrow,Mark,Wordmark} from './shared';
 export function Header(){const [open,setOpen]=useState(false);const path=usePathname();useEffect(()=>setOpen(false),[path]);return <header className="header wrap"><Wordmark/><nav className={open?'nav nav-open':'nav'} aria-label="Main navigation"><a href="/" aria-current={path==='/'?'page':undefined}>Home</a><a href="/work" aria-current={path.startsWith('/work')?'page':undefined}>Work</a><a href="/services" aria-current={path.startsWith('/services')?'page':undefined}>Services</a><a href="/about" aria-current={path==='/about'?'page':undefined}>About</a></nav><a href="/contact" className="nav-cta" data-event="start_project">Start a project <Arrow diagonal/></a><button className="menu-toggle" aria-expanded={open} aria-label={open?'Close menu':'Open menu'} onClick={()=>setOpen(!open)}>{open?'Close':'Menu'}<span>{open?'−':'+'}</span></button></header>}
 let measurementEnabled=false;
 const eventNames=new Set(['case_study_open','case_study_view','outbound_portfolio','start_project','inquiry_success']);
@@ -34,7 +34,6 @@ export function track(event:string,project=''){
  if(project&&!projects.some(item=>item.slug===project))return;
  trackVercelEvent(event,project?{project}:{});
 }
-export function WorkGrid(){const [filter,setFilter]=useState('All work');const filters=['All work','Websites','Interactive','Applications'];const shown=filter==='All work'?projects:projects.filter(p=>p.category===filter);return <><div className="filters" aria-label="Filter projects">{filters.map(f=><button key={f} className={filter===f?'active':''} onClick={()=>setFilter(f)} aria-pressed={filter===f}>{f}<sup>{f==='All work'?projects.length:projects.filter(p=>p.category===f).length}</sup></button>)}</div><span className="sr-only" role="status">{shown.length} projects shown</span><div className="work-grid">{shown.map(p=><ProjectCard key={p.slug} project={p}/>)}</div></>}
 export function ContactForm(){
  const titleId=useId();
  const [status,setStatus]=useState<'idle'|'sending'|'success'|'error'>('idle');

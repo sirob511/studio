@@ -26,7 +26,7 @@ export default function Home() {
           <h2 id="home-services-title">What we can build for you</h2>
           <div className="home-service-grid">
             {services.map(service => (
-              <a className="home-service" href={`/services/${service.slug}`} key={service.slug}>
+              <a className="home-service" href={`/services#${service.slug}`} key={service.slug}>
                 <h3>{service.name}<Arrow diagonal/></h3>
                 <p>{serviceCopy[service.slug]}</p>
               </a>

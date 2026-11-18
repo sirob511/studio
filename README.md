@@ -13,11 +13,13 @@ Use Node 24. Run `npm ci`, then `npm run dev`. `npm run build` produces the nati
 ## Content and assets
 
 - `lib/projects.ts`: eight projects, three services, live URLs, descriptions, and attribution.
-- `app/`: homepage, work index, case studies, service pages, about, contact, privacy, sitemap, and robots.
+- `app/`: homepage, work index, case studies, services overview, about, contact, privacy, sitemap, and robots.
 - `components/studio/`: navigation, project cards, inquiry form, videos, and analytics.
 - `public/images/`: actual portfolio screenshots with responsive WebP variants.
 - `public/clips/`: user-initiated public-demo captures. No autoplay.
 - `public/fonts/`: locally hosted Bricolage Grotesque and Instrument Sans.
+
+The Services page contains three expandable sections with scope and related project links. Homepage service links jump to these sections. The former `/services/custom-websites`, `/services/interactive-web-experiences`, and `/services/web-applications` URLs permanently redirect to their matching anchors on `/services`.
 
 The portfolio and credits were checked against https://oddlogic.ai/. That portfolio groups OneSuitcase, Tulsa, A Planet of Her Own, and Centennial Fountain under “Client & partner work.” BuildPlane and Website X-Ray are explicitly credited as Odd Logic AI products. Compute4Cure is labeled an initiative. The studio’s scope and founder AWS background come from the launch brief. No performance or business-results metrics have been invented.
 

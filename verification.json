@@ -186,5 +186,28 @@
       "Application preview retains the BuildPlane product canvas"
     ],
     "build": "Next.js production webpack build and TypeScript passed"
+  },
+  "services_consolidation_revision": {
+    "checked_on": "2026-11-17",
+    "summary": "Replaced separate service pages with native Explore this service disclosures below each overview and device preview; scope and related work remain inline.",
+    "viewport_widths": [
+      320,
+      390,
+      768,
+      900,
+      1024,
+      1440,
+      1920
+    ],
+    "checks": [
+      "All three panels open and close by mouse, Enter, and Space; also work without JavaScript",
+      "No horizontal overflow or browser JavaScript errors; preview images retain full aspect ratios",
+      "All three legacy service URLs return 308 to the matching service anchors and preserve query strings",
+      "Unknown service URLs return 404",
+      "Homepage links reach the matching section; seven related project links return 200",
+      "Services canonical remains /services; sitemap contains 14 canonical content URLs without legacy service pages"
+    ],
+    "build": "Next.js production webpack build and TypeScript passed",
+    "lint": "Services page, sitemap, and Next config pass scoped lint. Repository-wide lint reports existing internal anchor and Header effect errors, plus an existing screenshot img warning."
   }
 }

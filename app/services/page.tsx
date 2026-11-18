@@ -10,7 +10,7 @@ export default function Services(){return <main id="main" className="wrap"><sect
   <div className="service-intro">
    <h2 id={`${service.slug}-title`}>{service.name}</h2><p>{service.detail}</p>
   </div>
-  <a className="service-example service-device-example" href={`/work/${project.slug}`} style={{background:project.color}} aria-label={`View ${project.name} case study`} data-event="case_study_open" data-project={project.slug}>
+  <a className="service-example service-device-example" href={`/work/${project.slug}`} aria-label={`View ${project.name} case study`} data-event="case_study_open" data-project={project.slug}>
    <div className={isApplication ? undefined : 'service-device-pair'}>
     <ProjectPreview project={project} variant={isApplication?'product':'desktop'} sizes="(max-width: 500px) 55vw, (max-width: 900px) 60vw, 420px"/>
     {!isApplication && <ProjectPreview project={project} variant="mobile"/>}

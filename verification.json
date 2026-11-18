@@ -253,5 +253,22 @@
       "About and Services metadata match the revised positioning"
     ],
     "build": "Next.js production webpack build and TypeScript passed; scoped lint passed for About, Contact, Services, and project data"
+  },
+  "device_background_revision": {
+    "checked_on": "2026-11-17",
+    "summary": "Removed colored rectangular surfaces and outer card borders behind device previews on Work, all eight project pages, and Services. Devices sit on the normal page background.",
+    "content_routes_checked": 10,
+    "viewport_widths": [
+      320,
+      390,
+      1440
+    ],
+    "checks": [
+      "Every project-card, case-stage, and service-example wrapper has a transparent background and no visible outer border",
+      "All 87 rendered image checks retain full intrinsic proportions with contain sizing",
+      "No horizontal overflow or browser JavaScript errors",
+      "Desktop and phone frames, screen fills, shadows, and links retained"
+    ],
+    "build": "Next.js production webpack build and TypeScript passed"
   }
 }

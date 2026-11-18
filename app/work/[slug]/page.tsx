@@ -100,10 +100,7 @@ export default async function CaseStudy({
 
         <section className="case-details case-showcase" aria-label="Desktop and mobile views">
           <div className="case-view">
-            <div
-              className="detail-image case-media-stage"
-              style={{ background: project.color }}
-            >
+            <div className="detail-image case-media-stage">
               <ProjectPreview
                 project={project}
                 variant={isProduct ? 'product' : 'desktop'}
@@ -118,10 +115,7 @@ export default async function CaseStudy({
           </div>
 
           <div className="case-view case-view-mobile">
-            <div
-              className="mobile-image case-media-stage"
-              style={{ background: project.color }}
-            >
+            <div className="mobile-image case-media-stage">
               <ProjectPreview project={project} variant="mobile" priority />
             </div>
             <div className="annotation">

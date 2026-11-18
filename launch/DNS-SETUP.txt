@@ -1,44 +1,57 @@
-Odd Logic Studio — custom-domain setup
+Odd Logic Studio — Vercel production domain setup
 
-The private review site is published at:
-https://odd-logic-studio.amusingdelta5.chatgpt.site
+Production host: Vercel
+Project: prj_f3FW4iLjauCAXnajVCaGNqpCnL3T
+Canonical URL: https://oddlogicstudio.com
+Vercel URL: https://studio-gamma-seven-40.vercel.app
+Checked: November 17, 2026 (America/Chicago)
 
-oddlogicstudio.com has been added to Sites and is awaiting these DNS records.
-The current nameservers are dns1.registrar-servers.com and dns2.registrar-servers.com.
+The apex domain is attached to the Vercel project and verified. Its current DNS
+record is valid; Vercel reports no DNS misconfiguration:
 
-Type  Host                       Value
-A     @                          162.159.143.30
-A     @                          172.66.3.26
-TXT   _openai-site-verification   openai-site-verification=GzY6oHBpajNDkdrL7oEqlD4LOkHKadzkU2UXgGaa1Ck
-TXT   _cf-custom-hostname         a4063048-2f36-4971-94cc-284fe742e961
+Type  Host  Value
+A     @     216.198.79.1
 
-Replace the existing apex A record (216.198.79.1) with the two A records above.
-Use the provider's automatic/default TTL. Keep all existing MX, mail TXT,
-email-forwarding, and catch-all settings intact.
+Keep this A record. The earlier ChatGPT Sites A/TXT instructions are obsolete;
+do not replace the apex record with 162.159.143.30 or 172.66.3.26.
 
-These host values are relative to oddlogicstudio.com; do not duplicate the domain
-suffix if your DNS editor adds it automatically.
+The www hostname has been attached to the same Vercel project with a permanent
+308 redirect to oddlogicstudio.com. It still needs this DNS record at Namecheap:
 
-After DNS propagation:
-1. Refresh custom-domain verification in Sites and confirm HTTPS is active.
-2. Review the private site, then make its audience public when ready to launch.
-3. Change the project's noindex/disallow settings to index/follow and allow.
-4. Configure and verify the www hostname redirect to the apex hostname.
-5. Merge the prepared contextual-link PR after the domain is public:
+Type   Host  Value
+CNAME  www   a31cabf542587a07.vercel-dns-017.com
+
+Use automatic/default TTL. The host value is relative to oddlogicstudio.com;
+do not duplicate the domain suffix if the DNS editor adds it automatically.
+Authoritative nameservers remain dns1.registrar-servers.com and
+dns2.registrar-servers.com. No nameserver change is needed.
+
+Preserve all existing MX, mail TXT, email-forwarding, and catch-all settings.
+The inquiry inbox remains hello@oddlogicstudio.com.
+
+Current verification status:
+- Apex HTTPS reaches Vercel with a valid TLS connection.
+- Apex DNS is correct, but the deployment currently returns Vercel 404 NOT_FOUND.
+  The application runtime/build migration is being fixed; production is not yet
+  verified. The matching vercel.app hostname returns the same 404.
+- www has no public DNS record yet. The Vercel redirect is configured, but its
+  public DNS, certificate, and redirect cannot be confirmed until the CNAME is
+  added and propagated.
+
+After the CNAME propagates and the application migration is deployed:
+1. Confirm https://oddlogicstudio.com serves the site and all public routes work.
+2. Confirm https://www.oddlogicstudio.com redirects permanently to the apex and
+   preserves paths and query strings.
+3. Confirm HTTP redirects to HTTPS for both hostnames.
+4. Run a production inquiry test and confirm inbox receipt. FormSubmit is
+   activated for hello@oddlogicstudio.com; an earlier test reached spam. Mark
+   that actual message Not spam and allow its sender.
+5. Confirm canonical metadata, sitemap, and indexing settings use the production
+   apex domain.
+6. Publish the contextual link from OddLogic.ai after production is working:
    https://github.com/sirob511/oddlogic/pull/1
 
-Email:
-FormSubmit is activated for hello@oddlogicstudio.com. The final published browser form was accepted by FormSubmit (HTTP 200, success true)
-and showed its inline confirmation. Activation and delivery-error responses were
-verified to preserve the entered text. The owner confirmed an earlier test in spam.
-Mark the actual message Not spam and allow its sender before relying on inquiries.
+The earlier private ChatGPT Sites review URL is not the production host:
+https://odd-logic-studio.amusingdelta5.chatgpt.site
 
-Site source:
-/home/boris/studio
-
-Validation:
-17 routes reviewed at 320, 390, 768, and 1440 pixels. Production build and TypeScript
-passed. Project filtering, mobile menu, field validation, failed-send preservation,
-real email acceptance, inline success, video playback, and analytics persistence
-were checked. Throttled browser loading was checked locally; this is not a field
-performance measurement.
+Source: /home/boris/studio (main)

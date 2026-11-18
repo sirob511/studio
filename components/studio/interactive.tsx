@@ -1,11 +1,39 @@
 'use client';
 import {useEffect,useRef,useState} from 'react';
 import {usePathname} from 'next/navigation';
+import {inject,track as trackVercelEvent} from '@vercel/analytics';
 import {projects} from '@/lib/projects';
 import {Arrow,Mark,Wordmark,ProjectCard} from './shared';
 export function Header(){const [open,setOpen]=useState(false);const path=usePathname();useEffect(()=>setOpen(false),[path]);return <header className="header wrap"><Wordmark/><nav className={open?'nav nav-open':'nav'} aria-label="Main navigation"><a href="/work" aria-current={path.startsWith('/work')?'page':undefined}>Work</a><a href="/services" aria-current={path.startsWith('/services')?'page':undefined}>Services</a><a href="/about" aria-current={path==='/about'?'page':undefined}>About</a></nav><a href="/contact" className="nav-cta" data-event="start_project">Start a project <Arrow diagonal/></a><button className="menu-toggle" aria-expanded={open} aria-label={open?'Close menu':'Open menu'} onClick={()=>setOpen(!open)}>{open?'Close':'Menu'}<span>{open?'−':'+'}</span></button></header>}
-export function Analytics(){const path=usePathname();useEffect(()=>{function handle(event:MouseEvent){const el=(event.target as Element).closest<HTMLElement>('[data-event]');if(el)track(el.dataset.event!,el.dataset.project||'')}document.addEventListener('click',handle);return()=>document.removeEventListener('click',handle)},[]);useEffect(()=>{if(path.startsWith('/work/'))track('case_study_view',path.split('/')[2])},[path]);return null}
-export function track(event:string,project=''){if(navigator.doNotTrack==='1')return;const payload=JSON.stringify({event,project});fetch('/api/events',{method:'POST',headers:{'Content-Type':'application/json'},body:payload,keepalive:true}).catch(()=>{})}
+let measurementEnabled=false;
+const eventNames=new Set(['case_study_open','case_study_view','outbound_portfolio','start_project','inquiry_success']);
+export function Analytics({enabled}:{enabled:boolean}){
+ const path=usePathname();
+ useEffect(()=>{
+  measurementEnabled=enabled&&navigator.doNotTrack!=='1';
+  if(!measurementEnabled)return;
+  inject({framework:'next',basePath:process.env.NEXT_PUBLIC_VERCEL_OBSERVABILITY_BASEPATH,beforeSend:event=>{
+   if(navigator.doNotTrack==='1')return null;
+   const url=new URL(event.url);url.search='';url.hash='';
+   return {...event,url:url.toString()};
+  }},process.env.NEXT_PUBLIC_VERCEL_OBSERVABILITY_CLIENT_CONFIG);
+  function handle(event:MouseEvent){
+   const target=event.target;
+   if(!(target instanceof Element))return;
+   const el=target.closest<HTMLElement>('[data-event]');
+   if(el)track(el.dataset.event!,el.dataset.project||'');
+  }
+  document.addEventListener('click',handle);
+  return()=>{measurementEnabled=false;document.removeEventListener('click',handle)};
+ },[enabled]);
+ useEffect(()=>{if(path.startsWith('/work/'))track('case_study_view',path.split('/')[2])},[path,enabled]);
+ return null;
+}
+export function track(event:string,project=''){
+ if(!measurementEnabled||navigator.doNotTrack==='1'||!eventNames.has(event))return;
+ if(project&&!projects.some(item=>item.slug===project))return;
+ trackVercelEvent(event,project?{project}:{});
+}
 export function WorkGrid(){const [filter,setFilter]=useState('All work');const filters=['All work','Websites','Interactive','Applications'];const shown=filter==='All work'?projects:projects.filter(p=>p.category===filter);return <><div className="filters" aria-label="Filter projects">{filters.map(f=><button key={f} className={filter===f?'active':''} onClick={()=>setFilter(f)} aria-pressed={filter===f}>{f}<sup>{f==='All work'?projects.length:projects.filter(p=>p.category===f).length}</sup></button>)}</div><span className="sr-only" role="status">{shown.length} projects shown</span><div className="work-grid">{shown.map((p,i)=><ProjectCard key={p.slug} project={p} index={i} featured={filter==='All work'&&i===0}/>)}</div></>}
 export function ContactForm(){
  const [status,setStatus]=useState<'idle'|'sending'|'success'|'error'>('idle');

@@ -8,28 +8,30 @@
     1440
   ],
   "checks": {
-    "production_build": "passed",
-    "typescript": "passed",
+    "production_build": "Native Next.js production build passed; all content pages prerendered",
+    "typescript": "Passed as part of Next.js production build",
     "responsive_overflow": "passed after narrow-screen fixes",
     "project_filters": "passed",
     "mobile_navigation": "passed",
     "form_validation": "passed",
     "failure_preserves_entered_text": "Passed on published site for provider HTTP 502 and activation-required responses.",
-    "real_formsubmit_acceptance": "Final published browser form accepted HTTP 200 with success true and rendered inline confirmation.",
+    "real_formsubmit_acceptance": "Prior Sites production browser test accepted; canonical Vercel form test pending",
     "inbox_receipt": "Owner confirmed receipt; message landed in spam. Mark Not spam / allow actual sender.",
     "video_playback": "both passed; no autoplay; preload none",
     "keyboard_skip_link": "passed",
     "sitemap": "17 canonical URLs",
-    "robots": "private preview: noindex, disallow all",
+    "robots": "Production builds index/follow and allow; preview/local builds noindex and disallow",
     "cold_field_performance": "not measured; local throttled browser check only",
-    "analytics_persistence": "Verified D1 case-study views and successful inquiry event",
-    "form_delivery_method": "Direct browser AJAX to FormSubmit; Worker delivery proxy removed after a hosted 502."
+    "analytics_persistence": "Vercel Web Analytics integration added; project enablement and production collection pending",
+    "form_delivery_method": "Direct browser AJAX to FormSubmit; Worker delivery proxy removed after a hosted 502.",
+    "nextjs_migration_browser_qa": "Passed all 17 routes, metadata, mobile layout, images, filtering, mocked form failure/success, analytics event allowlist, URL redaction, DNT, and unknown-slug 404"
   },
   "launch_dependencies": [
-    "Custom domain DNS and HTTPS",
-    "Public access and indexing",
-    "Alternate-hostname redirect",
-    "Merge OddLogic.ai contextual-link draft PR after public launch"
+    "Vercel production verification",
+    "Enable Vercel Web Analytics and confirm supported custom events",
+    "Namecheap www CNAME propagation and redirect verification",
+    "Merge OddLogic.ai contextual link after public launch"
   ],
-  "related_pr": "https://github.com/sirob511/oddlogic/pull/1"
+  "related_pr": "https://github.com/sirob511/oddlogic/pull/1",
+  "migration": "Vercel-native Next.js"
 }

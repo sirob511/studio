@@ -1,0 +1,228 @@
+/* Make the inquiry itself the primary call to action. */
+.contact-layout {
+  grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr);
+  gap: clamp(32px, 6vw, 84px);
+}
+
+.inquiry-panel {
+  min-width: 0;
+  padding: 28px;
+  color: #fff;
+  background: var(--blue);
+  border: 1px solid #2043cd;
+  border-radius: 8px;
+  box-shadow: 0 14px 36px #284fe31a;
+}
+
+.inquiry-heading {
+  margin-bottom: 22px;
+}
+
+.inquiry-heading h2,
+.inquiry-panel .form-success h2 {
+  color: #fff;
+  font-size: 32px;
+  line-height: 1.12;
+  letter-spacing: -.035em;
+}
+
+.inquiry-heading p,
+.inquiry-panel .form-success p {
+  color: #f0f3ff;
+  font-size: 14px;
+  line-height: 1.6;
+  margin-top: 9px;
+}
+
+.inquiry-panel .inquiry-form {
+  padding-top: 0;
+  margin-top: 0;
+}
+
+.inquiry-panel .form-row {
+  gap: 18px;
+}
+
+.inquiry-panel .field {
+  gap: 8px;
+  margin-bottom: 18px;
+}
+
+.inquiry-panel .field label {
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.inquiry-panel .field label span {
+  color: #fff;
+}
+
+.inquiry-panel .field input,
+.inquiry-panel .field textarea,
+.inquiry-panel .field select {
+  padding: 11px 12px;
+  background: #fff;
+  color: var(--ink);
+  border: 1px solid #d4dcfa;
+  border-radius: 4px;
+  font-size: 16px;
+  line-height: 1.4;
+}
+
+.inquiry-panel .field input,
+.inquiry-panel .field select {
+  min-height: 46px;
+}
+
+.inquiry-panel .field textarea {
+  min-height: 114px;
+}
+
+.inquiry-panel .field input::placeholder,
+.inquiry-panel .field textarea::placeholder {
+  color: #71716c;
+  opacity: 1;
+}
+
+.inquiry-panel :focus-visible {
+  outline: 3px solid #ffe492;
+  outline-offset: 3px;
+}
+
+.inquiry-panel .field input[aria-invalid=true],
+.inquiry-panel .field textarea[aria-invalid=true] {
+  border: 2px solid #8f2117;
+  background: #fff7f3;
+}
+
+.inquiry-panel .field-error {
+  padding: 7px 9px;
+  background: #fff1e8;
+  color: #852516;
+  border-radius: 3px;
+}
+
+.inquiry-panel .optional-fields {
+  margin: 2px 0 20px;
+  border-bottom: 1px solid #ffffff70;
+}
+
+.inquiry-panel .optional-fields > summary {
+  min-height: 40px;
+  padding: 0 0 12px;
+  color: #fff;
+  font-size: 13px;
+}
+
+.inquiry-panel .optional-fields > summary > span,
+.inquiry-panel .optional-fields > summary > span > span {
+  color: #e8edff;
+}
+
+.inquiry-panel .form-submit {
+  display: block;
+}
+
+.inquiry-panel .button {
+  width: 100%;
+  min-height: 52px;
+  padding: 14px 18px;
+  background: #faf9f5;
+  border-color: #faf9f5;
+  color: #1736b3;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.inquiry-panel .button:hover {
+  background: #e8edff;
+  border-color: #e8edff;
+  color: #142c91;
+}
+
+.inquiry-panel .button:disabled {
+  opacity: .75;
+}
+
+.inquiry-panel .form-privacy {
+  margin-top: 16px;
+  color: #f0f3ff;
+  font-size: 11px;
+  line-height: 1.6;
+}
+
+.inquiry-panel .form-privacy a:hover {
+  color: #fff;
+}
+
+.inquiry-panel .form-message {
+  margin-top: 18px;
+  border-radius: 3px;
+}
+
+.inquiry-panel .form-success {
+  padding: 12px 0;
+}
+
+.inquiry-panel .form-success > svg {
+  width: 40px;
+  height: 40px;
+  margin-bottom: 24px;
+  color: #fff;
+}
+
+.inquiry-panel .form-success > svg circle {
+  fill: var(--blue);
+}
+
+.inquiry-panel .form-success p {
+  margin: 16px 0 28px;
+  max-width: 460px;
+}
+
+.contact-page .contact-copy h1 {
+  font-size: clamp(36px, 3.6vw, 50px);
+}
+
+@media (max-width: 900px) {
+  .contact-layout {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .contact-page .contact-copy p {
+    max-width: 540px;
+  }
+
+  .contact-page .contact-note {
+    margin-top: 18px;
+  }
+}
+
+@media (max-width: 650px) {
+  .inquiry-panel {
+    padding: 22px 20px;
+    border-radius: 6px;
+  }
+
+  .inquiry-heading h2,
+  .inquiry-panel .form-success h2 {
+    font-size: 29px;
+  }
+
+  .inquiry-heading p {
+    font-size: 13px;
+  }
+
+  .contact-page .contact-copy h1 {
+    font-size: 36px;
+  }
+}
+
+@media (max-width: 500px) {
+  .inquiry-panel .form-row {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+}

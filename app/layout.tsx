@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import './globals.css';
 import '@/components/studio/project-media.css';
+import '@/components/studio/inquiry.css';
 import {Header,Analytics} from '@/components/studio/interactive';
 import {Footer} from '@/components/studio/shared';
 import {origin} from '@/lib/projects';

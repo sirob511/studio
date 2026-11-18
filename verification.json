@@ -95,5 +95,28 @@
       "No browser JavaScript errors"
     ],
     "build": "Next.js production webpack build and TypeScript passed"
+  },
+  "inquiry_cta_revision": {
+    "checked_on": "2026-11-17",
+    "summary": "Shared inquiry form is a blue call-to-action panel with a clear heading, white fields, full-width submit button, and visible focus/error/success states. Contact introduction shortened.",
+    "routes_checked": [
+      "/",
+      "/contact"
+    ],
+    "viewport_widths": [
+      320,
+      390,
+      768,
+      1440
+    ],
+    "checks": [
+      "No horizontal overflow or browser JavaScript errors",
+      "Accessible form name and required-field focus",
+      "Invalid optional website reopens its collapsed group and receives focus",
+      "HTTP 502 and activation-required responses preserve entered details",
+      "Sending state disables submission; success and reset behave correctly",
+      "24 intercepted provider submissions; no real email sent"
+    ],
+    "build": "Next.js production webpack build and TypeScript passed"
   }
 }

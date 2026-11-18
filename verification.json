@@ -270,5 +270,46 @@
       "Desktop and phone frames, screen fills, shadows, and links retained"
     ],
     "build": "Next.js production webpack build and TypeScript passed"
+  },
+  "services_compact_revision": {
+    "checked_on": "2026-11-17",
+    "summary": "Moved concise service scope beside device previews; removed service disclosures, repeated copy, and process section; retained three practical FAQs and a closing CTA.",
+    "viewport_widths": [
+      320,
+      390,
+      768,
+      900,
+      1440,
+      1920
+    ],
+    "checks": [
+      "Three service anchors and linked OneSuitcase, Planet, and BuildPlane examples preserved",
+      "Desktop and mobile previews retain full intrinsic proportions on transparent backgrounds",
+      "Two-column desktop and stacked mobile layout; no horizontal overflow or browser JavaScript errors",
+      "FAQ opens and closes using Enter and Space; legacy service URLs retain 308 redirects"
+    ],
+    "build": "Next.js production webpack build and TypeScript passed; scoped About and Services lint passed"
+  },
+  "inquiry_field_warnings_revision": {
+    "checked_on": "2026-11-17",
+    "summary": "Removed the generic validation banner, strengthened field messages, and moved invalid-field focus after error text renders. About closing CTA now reads Have something in mind?",
+    "routes_checked": [
+      "/",
+      "/contact",
+      "/about"
+    ],
+    "viewport_widths": [
+      320,
+      390,
+      1440
+    ],
+    "checks": [
+      "Required-field errors remain linked via aria-describedby and aria-invalid; first invalid field receives focus",
+      "Closed optional group opens before focusing an invalid website field",
+      "Delivery failure retains message and input values; subsequent validation clears obsolete delivery errors",
+      "Two intercepted failure/success submissions passed; no real emails sent",
+      "No horizontal overflow or browser JavaScript errors"
+    ],
+    "build": "Next.js production webpack build and TypeScript passed"
   }
 }

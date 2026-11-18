@@ -98,10 +98,14 @@
 }
 
 .inquiry-panel .field-error {
-  padding: 7px 9px;
+  padding: 8px 10px;
   background: #fff1e8;
   color: #852516;
+  border-left: 3px solid #8f2117;
   border-radius: 3px;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.45;
 }
 
 .inquiry-panel .optional-fields {

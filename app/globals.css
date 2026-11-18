@@ -11,6 +11,8 @@
 @media(max-width:650px){.hero h1{font-size:clamp(33px,9.8vw,48px)}.case-heading h1{font-size:clamp(37px,10.4vw,48px);overflow-wrap:anywhere}}
 
 /* Clearer introductions and a quieter page hierarchy. */
+/* Keep the layout width stable between short and scrolling pages. */
+html{scrollbar-gutter:stable}
 .header{height:84px;gap:32px}
 .wordmark{font-size:24px}
 .wordmark svg{width:35px;height:35px}

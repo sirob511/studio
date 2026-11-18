@@ -122,7 +122,6 @@
 }
 
 @media (max-width: 650px) {
-  .header--home .menu-toggle { margin-left: auto; }
   .home-intro { padding-block: 44px 52px; }
   .home-intro h1 {
     font-size: clamp(37px, 10.6vw, 54px);

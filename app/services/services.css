@@ -36,7 +36,7 @@
 }
 
 .services-page .service-example.service-device-example {
-  justify-self: start;
+  justify-self: end;
   width: 100%;
   max-width: 520px;
   margin: 0;
@@ -84,6 +84,9 @@
     padding-block: 24px;
   }
 
+  .services-page .service-example.service-device-example {
+    justify-self: start;
+  }
 }
 
 @media (max-width: 650px) {

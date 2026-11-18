@@ -311,5 +311,28 @@
       "No horizontal overflow or browser JavaScript errors"
     ],
     "build": "Next.js production webpack build and TypeScript passed"
+  },
+  "page_alignment_revision": {
+    "checked_on": "2026-11-17",
+    "summary": "Unified navigation and Start a project button across routes, removed the duplicate home hero project CTA, reserved scrollbar space, and aligned desktop Services previews to the common right edge.",
+    "viewport_widths": [
+      320,
+      390,
+      650,
+      760,
+      768,
+      900,
+      1440,
+      1920
+    ],
+    "checks": [
+      "Actual header navigation between Home, Work, Services, About, and Contact preserves identical header, content, footer, and navigation coordinates",
+      "Classic 15px desktop scrollbar enabled: short Contact and scrolling pages retain identical alignment at 1440px and 1920px",
+      "Privacy and project page headers match the primary page navigation",
+      "Services previews align with the shared right edge on desktop and left edge when stacked; images remain uncropped and backgrounds transparent",
+      "Mobile menu opens and follows Services link correctly; no horizontal overflow or browser JavaScript errors",
+      "Homepage retains one Start a project header CTA and a View work hero link"
+    ],
+    "build": "Next.js production webpack build and TypeScript passed"
   }
 }

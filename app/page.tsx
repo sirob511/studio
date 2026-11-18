@@ -1,5 +1,5 @@
 import {services} from '@/lib/projects';
-import {Arrow, ContactLink} from '@/components/studio/shared';
+import {Arrow} from '@/components/studio/shared';
 import {ContactForm} from '@/components/studio/interactive';
 
 const serviceCopy: Record<string, string> = {
@@ -16,7 +16,6 @@ export default function Home() {
         <div className="home-intro-bottom">
           <p>Distinctive websites and useful web applications, designed and built around your business.</p>
           <div className="home-actions">
-            <ContactLink/>
             <a className="text-link" href="/work">View work <Arrow/></a>
           </div>
         </div>

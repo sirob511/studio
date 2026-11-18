@@ -209,5 +209,27 @@
     ],
     "build": "Next.js production webpack build and TypeScript passed",
     "lint": "Services page, sitemap, and Next config pass scoped lint. Repository-wide lint reports existing internal anchor and Header effect errors, plus an existing screenshot img warning."
+  },
+  "inquiry_tone_revision": {
+    "checked_on": "2026-11-17",
+    "summary": "Softened the shared inquiry form with a pale panel, subtle border/shadow, dark text, smaller heading, white outlined fields, and a blue submit button.",
+    "routes_checked": [
+      "/",
+      "/contact"
+    ],
+    "viewport_widths": [
+      320,
+      390,
+      768,
+      1440,
+      1920
+    ],
+    "checks": [
+      "No horizontal overflow or browser JavaScript errors on either form",
+      "Blue focus outlines, readable optional controls, and visible field boundaries",
+      "Text contrast above 4.5:1; field-border contrast above 3:1 against fill and surrounding panel",
+      "Error, success, and reset appearance checked with two intercepted submissions; no real email sent"
+    ],
+    "build": "Next.js production webpack build and TypeScript passed"
   }
 }

@@ -1,17 +1,18 @@
-/* Make the inquiry itself the primary call to action. */
+/* Give the form a quiet surface and a clear primary action. */
 .contact-layout {
   grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr);
   gap: clamp(32px, 6vw, 84px);
 }
 
 .inquiry-panel {
+  --inquiry-surface: #f1f2f6;
   min-width: 0;
   padding: 28px;
-  color: #fff;
-  background: var(--blue);
-  border: 1px solid #2043cd;
+  color: var(--ink);
+  background: var(--inquiry-surface);
+  border: 1px solid #d9dce5;
   border-radius: 8px;
-  box-shadow: 0 14px 36px #284fe31a;
+  box-shadow: 0 4px 16px #20201e05;
 }
 
 .inquiry-heading {
@@ -20,15 +21,15 @@
 
 .inquiry-heading h2,
 .inquiry-panel .form-success h2 {
-  color: #fff;
-  font-size: 32px;
+  color: var(--ink);
+  font-size: 28px;
   line-height: 1.12;
   letter-spacing: -.035em;
 }
 
 .inquiry-heading p,
 .inquiry-panel .form-success p {
-  color: #f0f3ff;
+  color: var(--muted);
   font-size: 14px;
   line-height: 1.6;
   margin-top: 9px;
@@ -49,13 +50,13 @@
 }
 
 .inquiry-panel .field label {
-  color: #fff;
+  color: var(--ink);
   font-size: 13px;
-  font-weight: 600;
+  font-weight: 500;
 }
 
 .inquiry-panel .field label span {
-  color: #fff;
+  color: var(--blue);
 }
 
 .inquiry-panel .field input,
@@ -64,7 +65,7 @@
   padding: 11px 12px;
   background: #fff;
   color: var(--ink);
-  border: 1px solid #d4dcfa;
+  border: 1px solid #858c99;
   border-radius: 4px;
   font-size: 16px;
   line-height: 1.4;
@@ -86,7 +87,7 @@
 }
 
 .inquiry-panel :focus-visible {
-  outline: 3px solid #ffe492;
+  outline: 3px solid var(--blue);
   outline-offset: 3px;
 }
 
@@ -105,19 +106,19 @@
 
 .inquiry-panel .optional-fields {
   margin: 2px 0 20px;
-  border-bottom: 1px solid #ffffff70;
+  border-bottom: 1px solid #d9dce5;
 }
 
 .inquiry-panel .optional-fields > summary {
   min-height: 40px;
   padding: 0 0 12px;
-  color: #fff;
+  color: var(--ink);
   font-size: 13px;
 }
 
 .inquiry-panel .optional-fields > summary > span,
 .inquiry-panel .optional-fields > summary > span > span {
-  color: #e8edff;
+  color: var(--muted);
 }
 
 .inquiry-panel .form-submit {
@@ -128,17 +129,17 @@
   width: 100%;
   min-height: 52px;
   padding: 14px 18px;
-  background: #faf9f5;
-  border-color: #faf9f5;
-  color: #1736b3;
+  background: var(--blue);
+  border-color: var(--blue);
+  color: #fff;
   font-size: 15px;
   font-weight: 600;
 }
 
 .inquiry-panel .button:hover {
-  background: #e8edff;
-  border-color: #e8edff;
-  color: #142c91;
+  background: #2043cd;
+  border-color: #2043cd;
+  color: #fff;
 }
 
 .inquiry-panel .button:disabled {
@@ -147,13 +148,13 @@
 
 .inquiry-panel .form-privacy {
   margin-top: 16px;
-  color: #f0f3ff;
+  color: var(--muted);
   font-size: 11px;
   line-height: 1.6;
 }
 
 .inquiry-panel .form-privacy a:hover {
-  color: #fff;
+  color: var(--blue);
 }
 
 .inquiry-panel .form-message {
@@ -169,11 +170,11 @@
   width: 40px;
   height: 40px;
   margin-bottom: 24px;
-  color: #fff;
+  color: var(--blue);
 }
 
 .inquiry-panel .form-success > svg circle {
-  fill: var(--blue);
+  fill: var(--inquiry-surface);
 }
 
 .inquiry-panel .form-success p {
@@ -208,7 +209,7 @@
 
   .inquiry-heading h2,
   .inquiry-panel .form-success h2 {
-    font-size: 29px;
+    font-size: 26px;
   }
 
   .inquiry-heading p {

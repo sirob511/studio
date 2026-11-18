@@ -14,14 +14,14 @@
 .project-device-monitor {
   position: relative;
   padding: 7px 7px 12px;
-  border: 1px solid #282c29;
+  border: 1px solid #c2c4c0;
   border-radius: 11px;
-  background: linear-gradient(135deg, #494e48, #272c28);
-  box-shadow: 0 12px 24px #18251b16, 0 1px 2px #18251b18;
+  background: linear-gradient(135deg, #eeefec, #d7d9d4);
+  box-shadow: 0 8px 18px #18251b0d, 0 1px 2px #18251b12;
 }
 
 .project-monitor-screen {
-  border: 1px solid #1c211d;
+  border: 1px solid #b5bab1;
   border-radius: 4px;
   background: #fff;
 }
@@ -92,7 +92,7 @@
   width: 3px;
   height: 3px;
   border-radius: 50%;
-  background: #858d81;
+  background: #a0a69b;
 }
 
 .project-monitor-stand {
@@ -106,7 +106,7 @@
   content: '';
   position: absolute;
   inset: 0 30% 5px;
-  background: linear-gradient(#747b71, #a9aea5 85%);
+  background: linear-gradient(#bdc2b9, #e1e4dc 85%);
   clip-path: polygon(14% 0, 86% 0, 100% 100%, 0 100%);
 }
 
@@ -114,11 +114,11 @@
   position: absolute;
   inset: auto 0 0;
   height: 6px;
-  border: 1px solid #8e9589;
-  border-top-color: #bec3b8;
+  border: 1px solid #b9beb3;
+  border-top-color: #f1f3ec;
   border-radius: 50% 50% 3px 3px;
-  background: linear-gradient(#c4c9be, #9aa292);
-  box-shadow: 0 6px 10px #20282014;
+  background: linear-gradient(#eef0e9, #cdd2c6);
+  box-shadow: 0 4px 8px #2028200d;
 }
 
 .project-preview--phone {

@@ -15,14 +15,15 @@
     "mobile_navigation": "passed",
     "form_validation": "passed",
     "failure_preserves_entered_text": "passed",
-    "real_formsubmit_acceptance": "HTTP 200; inline success rendered",
+    "real_formsubmit_acceptance": "Local browser test accepted HTTP 200; inline success rendered. Final hosted checks are recorded in the external launch handoff.",
     "inbox_receipt": "Owner confirmed receipt; message landed in spam. Mark Not spam / allow actual sender.",
     "video_playback": "both passed; no autoplay; preload none",
     "keyboard_skip_link": "passed",
     "sitemap": "17 canonical URLs",
     "robots": "private preview: noindex, disallow all",
     "cold_field_performance": "not measured; local throttled browser check only",
-    "analytics_persistence": "Verified D1 case-study views and successful inquiry event"
+    "analytics_persistence": "Verified D1 case-study views and successful inquiry event",
+    "form_delivery_method": "Direct browser AJAX to FormSubmit; Worker delivery proxy removed after a hosted 502."
   },
   "launch_dependencies": [
     "Custom domain DNS and HTTPS",

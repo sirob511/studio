@@ -19,7 +19,7 @@ The portfolio and credits were checked against https://oddlogic.ai/. That portfo
 
 ## Inquiries
 
-The user-selected destination is `hello@oddlogicstudio.com`. FormSubmit is the default delivery provider; the user confirmed inbox activation. The server validates the form, sends only allowlisted fields, and treats provider failure or activation responses as errors. The browser preserves entered values and confirms success only after acceptance. Optional Resend configuration is supported by the variable names in `.env.example`; never commit keys.
+The user-selected destination is `hello@oddlogicstudio.com`. FormSubmit is the default delivery provider; the user confirmed inbox activation. The browser validates fields and sends the selected inquiry fields directly to FormSubmit’s cross-origin AJAX endpoint. It preserves entered values on failure and confirms success only after an affirmative provider response; activation responses are treated as errors. This avoids a hosted Worker-to-provider delivery failure observed during production QA. No delivery API key or runtime environment variable is required. Each site hostname needs FormSubmit activation.
 
 ## Measurement
 

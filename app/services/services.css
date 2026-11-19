@@ -1,120 +1,131 @@
-.services-page > .page-heading {
-  padding-block: 32px 28px;
+.services-page { overflow: clip; }
+.services-page .services-eyebrow { color: var(--blue); font-size: 14px; line-height: 1.5; letter-spacing: .065em; font-weight: 500; }
+.services-page .services-hero { position: relative; isolation: isolate; }
+.services-page .services-hero::before { content: ''; position: absolute; z-index: -1; inset: 0 0 0 35%; background: radial-gradient(ellipse at 75% 45%, #dce4fc 0, #edf0fa80 35%, transparent 72%); }
+.services-page .services-hero-layout { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, .95fr); gap: 7%; align-items: center; padding-block: 56px 76px; }
+.services-page .services-hero-copy { min-width: 0; }
+.services-page .services-hero-copy > .services-eyebrow { margin-bottom: 24px; }
+.services-page .services-hero h1 { margin: 0; font-size: clamp(50px, 5.3vw, 78px); line-height: 1.06; letter-spacing: -.055em; }
+.services-page .services-hero h1 > span { color: var(--blue); }
+.services-page .services-hero-description { max-width: 490px; margin-top: 30px; font-size: 19px; line-height: 1.7; }
+.services-page .services-hero-copy > .button { margin-top: 28px; padding: 14px 22px; min-height: 52px; font-size: 15px; }
+.services-page .services-hero-art { position: relative; min-width: 0; padding: 64px 0 47px; }
+.services-page .services-art-backdrop { position: absolute; inset: 0 6px 0 18px; overflow: hidden; border-radius: 110px 25px 100px 25px; background: radial-gradient(circle, #ffffff29 .8px, transparent 1px) 0 0 / 22px 22px, linear-gradient(145deg, #284fe3, #18349f); }
+.services-page .services-art-backdrop > span { position: absolute; width: 440px; aspect-ratio: 1; border: 1px solid #ffffff2b; border-radius: 50%; left: -20px; top: -10px; }
+.services-page .services-art-backdrop > span:last-child { width: 300px; left: 50px; top: 60px; }
+.services-page .services-art-mark { position: absolute; z-index: 2; width: 69px; height: 69px; color: #d4ec8b; top: -10px; right: 26px; transform: rotate(12deg); }
+.services-page .services-art-mark circle { fill: var(--blue); }
+.services-page .services-hero-options { position: relative; display: grid; gap: 18px; }
+.services-page .services-hero-option { display: grid; grid-template-columns: 75px 1fr; gap: 16px; align-items: center; width: 92%; padding: 14px 21px; border: 1px solid #fff9; border-radius: 9px; background: var(--paper); box-shadow: 0 14px 30px #101a502e; transform: rotate(-4deg); transition: transform .3s, box-shadow .3s; }
+.services-page .services-hero-option:nth-child(2) { margin-left: 8%; transform: rotate(3deg); }
+.services-page .services-hero-option:nth-child(3) { margin-left: 2%; transform: rotate(-2deg); }
+.services-page .services-hero-option > svg:first-child { width: 75px; height: 62px; color: var(--blue); stroke: currentColor; stroke-width: 1.5; }
+.services-page .service-symbol-fill { fill: var(--blue); }
+.services-page .service-symbol-cursor { fill: #d4ec8b; }
+.services-page .service-symbol-check { stroke: var(--paper); }
+.services-page .services-hero-option strong { display: block; font-family: var(--display); font-size: clamp(21px, 2vw, 27px); font-weight: 500; line-height: 1.15; letter-spacing: -.025em; }
+.services-page .services-hero-option:hover { transform: rotate(0) translateY(-4px); box-shadow: 0 18px 36px #101a5042; }
+.services-page .services-hero-option:focus-visible { outline: 3px solid var(--ink); outline-offset: 5px; }
+.services-page .services-detail { padding-bottom: 30px; }
+.services-page .services-detail .service-detail { grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr); align-items: center; gap: 7%; padding-block: 70px; scroll-margin-top: 32px; }
+.services-page .service-intro { min-width: 0; max-width: 470px; }
+.services-page .service-intro > .services-eyebrow { display: flex; align-items: center; gap: 14px; margin: 0 0 22px; font-size: 12px; }
+.services-page .service-intro h2 { margin: 0 0 22px; font-size: clamp(34px, 3.5vw, 48px); line-height: 1.1; }
+.services-page .service-intro > p:not(.services-eyebrow) { margin-bottom: 24px; font-size: 17px; line-height: 1.7; }
+.services-page .service-scope-list { display: grid; gap: 11px; margin: 0; padding: 0; list-style: none; color: var(--muted); font-size: 15px; line-height: 1.5; }
+.services-page .service-scope-list li { display: grid; grid-template-columns: 14px minmax(0, 1fr); gap: 12px; }
+.services-page .service-scope-list li::before { content: ''; width: 5px; height: 5px; margin-top: .6em; border-radius: 50%; background: var(--blue); }
+.services-page .service-example.service-device-example { justify-self: end; width: 100%; max-width: none; margin: 0; padding: 0; border-radius: 0; background: transparent; overflow: visible; }
+.services-page .service-example-stage { position: relative; isolation: isolate; display: flex; align-items: center; min-height: 350px; padding: 48px 25px 35px; overflow: hidden; border: 1px solid #284fe311; border-radius: 70px 15px 70px 15px; background: radial-gradient(circle, #284fe321 .8px, transparent 1px) 0 0 / 22px 22px, #e5eaf6; }
+.services-page .service-stage-orbit { position: absolute; z-index: -1; width: 430px; aspect-ratio: 1; border: 1px solid #284fe31c; border-radius: 50%; left: 50%; top: 50%; transform: translate(-50%, -50%); }
+.services-page .service-stage-orbit::after { content: ''; position: absolute; inset: 48px; border: 1px solid #284fe31c; border-radius: 50%; }
+.services-page .service-device-pair, .services-page .service-product-preview { position: relative; width: 100%; transition: transform .4s; }
+.services-page .service-device-pair { gap: 14px; }
+.services-page .service-example:hover .service-device-pair, .services-page .service-example:hover .service-product-preview { transform: translateY(-6px); }
+.services-page .service-detail--interactive-web-experiences .service-example-stage { background-color: #ece8f2; border-radius: 15px 70px 15px 70px; }
+.services-page .service-detail--web-applications .service-example-stage { background-color: #e7ecd9; }
+.services-page .service-device-example > .service-example-caption { display: flex; align-items: end; justify-content: space-between; gap: 16px; padding: 18px 0 0; font-size: 17px; }
+.services-page .service-example-caption > span > small { display: block; margin-bottom: 5px; color: var(--muted); font-size: 12px; }
+.services-page .service-example-caption > svg { width: 22px; height: 22px; color: var(--blue); }
+.services-page .service-example:hover .service-example-caption { color: var(--blue); }
+.services-page .service-example:focus-visible { outline: 3px solid var(--blue); outline-offset: 7px; }
+.services-page .services-faq { padding-block: 76px 88px; background: #eeeee7; border-top: 1px solid var(--line); }
+.services-page .services-faq-layout { display: grid; grid-template-columns: minmax(0, .7fr) minmax(0, 1.3fr); gap: 10%; }
+.services-page .services-faq-heading > .services-eyebrow { margin-bottom: 20px; }
+.services-page .services-faq h2 { font-size: clamp(38px, 4.3vw, 60px); line-height: 1.08; }
+.services-page .services-faq-heading > svg { width: 64px; height: 64px; margin-top: 38px; color: var(--blue); transform: rotate(12deg); }
+.services-page .services-faq-heading > svg circle { fill: #eeeee7; }
+.services-page .services-faq-questions { border-top: 1px solid #c9ccc2; }
+.services-page .services-faq details { border-bottom: 1px solid #c9ccc2; }
+.services-page .services-faq summary { display: flex; justify-content: space-between; align-items: center; gap: 24px; padding-block: 23px; list-style: none; cursor: pointer; font-size: 18px; line-height: 1.5; }
+.services-page .services-faq summary > span { flex-shrink: 0; display: flex; align-items: center; justify-content: center; width: 30px; height: 30px; color: var(--blue); background: #faf9f5; border: 1px solid #284fe32b; border-radius: 50%; font-size: 22px; font-weight: 400; transition: transform .2s; }
+.services-page .services-faq summary:hover { color: var(--blue); }
+.services-page .services-faq summary:focus-visible { outline: 2px solid var(--blue); outline-offset: 5px; }
+.services-page .services-faq details[open] summary > span { transform: rotate(45deg); }
+.services-page .services-faq details p { padding: 0 50px 25px 0; font-size: 16px; line-height: 1.7; }
+@media (prefers-reduced-motion: no-preference) {
+  .services-page .services-hero-copy { animation: home-copy-in .75s both; }
+  .services-page .services-hero-art { animation: home-art-in 1s .12s both; }
 }
-
-.services-page .services-detail .service-detail {
-  grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr);
-  align-items: center;
-  gap: 24px clamp(28px, 5vw, 64px);
-  padding-block: 28px;
-  scroll-margin-top: 12px;
+@media (min-width: 901px) {
+  .services-page .service-detail:nth-child(even) { grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr); }
+  .services-page .service-detail:nth-child(even) > .service-intro { grid-column: 2; grid-row: 1; }
+  .services-page .service-detail:nth-child(even) > .service-example { grid-column: 1; grid-row: 1; }
 }
-
-.services-page .service-intro {
-  min-width: 0;
-  max-width: 480px;
+@media (max-width: 1100px) {
+  .services-page .services-hero-layout { gap: 4%; }
+  .services-page .services-hero h1 { font-size: clamp(47px, 5.4vw, 60px); }
+  .services-page .services-hero-option { grid-template-columns: 60px 1fr; gap: 12px; padding: 14px 16px; }
+  .services-page .services-hero-option > svg:first-child { width: 60px; height: 55px; }
+  .services-page .services-detail .service-detail { gap: 5%; }
+  .services-page .service-example-stage { min-height: 290px; padding: 35px 20px 28px; }
 }
-
-.services-page .service-intro h2 {
-  margin: 0 0 18px;
-  font-size: clamp(28px, 2.8vw, 36px);
-  line-height: 1.12;
+@media (max-width: 900px) {
+  .services-page .services-hero-layout { grid-template-columns: 1fr; gap: 42px; padding-block: 40px 60px; }
+  .services-page .services-hero h1 { font-size: clamp(54px, 8vw, 72px); }
+  .services-page .services-hero-description { max-width: 570px; }
+  .services-page .services-hero-art { width: 100%; max-width: 560px; justify-self: center; }
+  .services-page .services-hero-option { grid-template-columns: 75px 1fr; gap: 18px; padding: 14px 25px; }
+  .services-page .services-hero-option > svg:first-child { width: 75px; height: 62px; }
+  .services-page .services-hero-option strong { font-size: 27px; }
+  .services-page .services-detail .service-detail { grid-template-columns: minmax(0, 1fr); gap: 32px; padding-block: 52px; }
+  .services-page .service-intro { max-width: 590px; }
+  .services-page .service-intro h2 { font-size: 40px; }
+  .services-page .service-detail .service-example { max-width: 650px; justify-self: start; }
+  .services-page .service-example-stage { min-height: 340px; padding: 42px 30px 32px; }
+  .services-page .services-faq-layout { grid-template-columns: minmax(0, .75fr) minmax(0, 1.25fr); gap: 6%; }
+  .services-page .services-faq summary { font-size: 17px; }
 }
-
-.services-page .service-intro > p {
-  margin-bottom: 20px;
-  font-size: 16px;
-  line-height: 1.6;
-}
-
-.service-scope-list {
-  display: grid;
-  gap: 8px;
-  margin: 0;
-  padding-left: 18px;
-  color: var(--muted);
-  font-size: 15px;
-  line-height: 1.5;
-}
-
-.service-scope-list li::marker {
-  color: var(--blue);
-}
-
-.services-page .service-example.service-device-example {
-  justify-self: end;
-  width: 100%;
-  max-width: 520px;
-  margin: 0;
-  padding: 0;
-}
-
-.services-page .service-example.service-example--application {
-  max-width: 480px;
-}
-
-.services-page .service-device-example > span {
-  padding: 12px 0 0;
-  font-size: 13px;
-}
-
-.services-page .faq.section {
-  max-width: 850px;
-  padding-block: 28px 16px;
-  border-top: 1px solid var(--line);
-}
-
-.services-page .faq h2 {
-  margin: 0 0 12px;
-  font-size: clamp(28px, 3vw, 36px);
-}
-
-.services-page .faq summary {
-  padding-block: 16px;
-  font-size: 16px;
-}
-
-.services-page .faq details p {
-  padding-bottom: 18px;
-  font-size: 14px;
-}
-
-.services-page > .inline-cta {
-  padding-block: 28px;
-}
-
-@media (max-width: 760px) {
-  .services-page .services-detail .service-detail {
-    grid-template-columns: minmax(0, 1fr);
-    gap: 20px;
-    padding-block: 24px;
-  }
-
-  .services-page .service-example.service-device-example {
-    justify-self: start;
-  }
-}
-
 @media (max-width: 650px) {
-  .services-page > .page-heading {
-    padding-block: 28px 24px;
-  }
-
-  .services-page .service-intro h2 {
-    margin-bottom: 14px;
-    font-size: 29px;
-  }
-
-  .service-scope-list {
-    gap: 6px;
-    font-size: 14px;
-  }
-
-  .services-page .faq.section {
-    padding-block: 24px 12px;
-  }
-
-  .services-page > .inline-cta {
-    padding-block: 24px;
-  }
+  .services-page .services-hero-layout { padding-block: 30px 40px; gap: 40px; }
+  .services-page .services-hero-copy > .services-eyebrow { margin-bottom: 20px; font-size: 13px; letter-spacing: .035em; }
+  .services-page .services-hero h1 { font-size: clamp(40px, 10.7vw, 64px); }
+  .services-page .services-hero-description { margin-top: 25px; font-size: 17px; line-height: 1.65; }
+  .services-page .services-hero-copy > .button { margin-top: 24px; min-height: 48px; }
+  .services-page .services-hero-art { padding: 44px 0 35px; }
+  .services-page .services-art-backdrop { inset: 0 0 0 9px; border-radius: 75px 18px 65px 18px; }
+  .services-page .services-art-mark { width: 52px; height: 52px; top: -10px; right: 15px; }
+  .services-page .services-hero-options { gap: 15px; }
+  .services-page .services-hero-option { grid-template-columns: 56px 1fr; gap: 12px; padding: 12px 15px; }
+  .services-page .services-hero-option > svg:first-child { width: 56px; height: 52px; }
+  .services-page .services-hero-option strong { font-size: clamp(20px, 5.2vw, 25px); }
+  .services-page .services-detail { padding-bottom: 10px; }
+  .services-page .services-detail .service-detail { padding-block: 40px; gap: 28px; }
+  .services-page .service-intro > .services-eyebrow { margin-bottom: 19px; font-size: 11px; }
+  .services-page .service-intro h2 { margin-bottom: 18px; font-size: 36px; }
+  .services-page .service-intro > p:not(.services-eyebrow) { font-size: 16px; }
+  .services-page .service-scope-list { font-size: 14px; gap: 10px; }
+  .services-page .service-example-stage { min-height: 0; padding: 32px 17px 25px; border-radius: 50px 12px 50px 12px; }
+  .services-page .service-detail--interactive-web-experiences .service-example-stage { border-radius: 12px 50px 12px 50px; }
+  .services-page .service-device-pair { grid-template-columns: minmax(0, 2.6fr) minmax(0, 1fr); gap: 10px; }
+  .services-page .service-device-example > .service-example-caption { padding-top: 15px; font-size: 16px; }
+  .services-page .services-faq { padding-block: 48px 56px; }
+  .services-page .services-faq-layout { grid-template-columns: 1fr; gap: 30px; }
+  .services-page .services-faq-heading { position: relative; padding-right: 50px; }
+  .services-page .services-faq-heading > .services-eyebrow { margin-bottom: 16px; font-size: 13px; }
+  .services-page .services-faq h2 { font-size: 39px; }
+  .services-page .services-faq h2 > br { display: none; }
+  .services-page .services-faq-heading > svg { position: absolute; right: 2px; top: 5px; width: 42px; height: 42px; margin: 0; }
+  .services-page .services-faq summary { font-size: 16px; gap: 16px; padding-block: 20px; }
+  .services-page .services-faq details p { font-size: 15px; padding: 0 20px 23px 0; }
 }

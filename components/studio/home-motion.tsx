@@ -2,9 +2,9 @@
 import {useEffect} from 'react';
 
 /** Content stays visible without JavaScript; only offscreen sections get an entrance. */
-export function HomeMotion() {
+export function HomeMotion({rootSelector = '.home-page'}: {rootSelector?: string}) {
   useEffect(() => {
-    const root = document.querySelector('.home-page');
+    const root = document.querySelector(rootSelector);
     const preference = window.matchMedia('(prefers-reduced-motion: reduce)');
     if (!root || preference.matches || !('IntersectionObserver' in window)) return;
     const elements = [...root.querySelectorAll<HTMLElement>('[data-home-reveal]')];
@@ -41,6 +41,6 @@ export function HomeMotion() {
       root.removeEventListener('focusin', revealFocused);
       preference.removeEventListener('change', revealAll);
     };
-  }, []);
+  }, [rootSelector]);
   return null;
 }

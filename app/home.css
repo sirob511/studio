@@ -10,7 +10,7 @@
 .home-hero-word::after { content: ''; position: absolute; left: 0; right: 0; bottom: -9px; height: 12px; border-top: 3px solid var(--blue); border-radius: 50%; transform: rotate(-3deg); }
 .home-hero-description { max-width: 440px; margin-top: 34px; font-size: 19px; line-height: 1.7; }
 .home-portfolio-link { display: inline-flex; justify-content: center; align-items: center; min-height: 52px; margin-top: 29px; padding: 14px 24px; background: var(--blue); color: #fff; border: 1px solid var(--blue); border-radius: 4px; font-size: 16px; font-weight: 500; transition: background .2s, transform .2s, box-shadow .2s; }
-.home-portfolio-link:hover { background: #173cc9; transform: translateY(-3px); box-shadow: 0 8px 24px #284fe32b; }
+.home-portfolio-link:hover { background: #173cc9; color: #fff; transform: translateY(-3px); box-shadow: 0 8px 24px #284fe32b; }
 .home-hero-art { position: relative; height: clamp(440px, 39vw, 575px); min-width: 0; }
 .home-art-backdrop { position: absolute; inset: 12px -18px 18px 40px; overflow: hidden; border-radius: 150px 28px 120px 28px; background: radial-gradient(circle, #ffffff24 .8px, transparent 1px) 0 0 / 22px 22px, linear-gradient(145deg, #284fe3, #18349f); }
 .home-art-orbit { position: absolute; width: 480px; aspect-ratio: 1; border: 1px solid #ffffff29; border-radius: 50%; top: 25px; left: 25px; }

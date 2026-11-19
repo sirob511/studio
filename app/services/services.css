@@ -21,6 +21,12 @@
   line-height: 1.12;
 }
 
+.services-page .service-intro > p {
+  margin-bottom: 20px;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
 .service-scope-list {
   display: grid;
   gap: 8px;

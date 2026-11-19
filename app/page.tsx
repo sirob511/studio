@@ -5,7 +5,7 @@ import {ContactForm} from '@/components/studio/interactive';
 import {HomeMotion} from '@/components/studio/home-motion';
 
 const serviceCopy: Record<string, string> = {
-  'custom-websites': 'From logo design and visual identity to a website built around your business and your customers.',
+  'custom-websites': 'A distinctive website that helps customers understand what you offer and take the next step. From visual identity to launch.',
   'interactive-web-experiences': 'Illustrated worlds, guides, maps, and tools that invite people to explore and take part.',
   'web-applications': 'Portals, dashboards, and custom workflows that connect your data and make complicated tasks easier.',
 };
@@ -44,9 +44,9 @@ export default function Home() {
       <section className="home-hero" aria-labelledby="home-title">
         <div className="home-intro wrap">
           <div className="home-hero-copy">
-            <p className="home-eyebrow">Independent design &amp; development</p>
+            <p className="home-eyebrow">Web design &amp; development</p>
             <h1 id="home-title">Custom websites.<br/>Anything but <span className="home-hero-word">ordinary.</span></h1>
-            <p className="home-hero-description">Distinctive websites and useful web applications, designed and built around your business.</p>
+            <p className="home-hero-description">Distinctive websites and useful web applications. Built around your business, easy to use on desktop and mobile.</p>
             <Link className="home-portfolio-link" href="/work">Explore the portfolio</Link>
           </div>
           <div className="home-hero-art" aria-label="A glimpse of our projects">
@@ -95,10 +95,10 @@ export default function Home() {
         </div>
       </section>
       <section className="home-about wrap" data-home-reveal>
-        <div className="home-about-title"><Mark/><p className="home-eyebrow">A small studio. A direct connection.</p><h2>A direct line to the person building it.</h2></div>
+        <div className="home-about-title"><Mark/><p className="home-eyebrow">Built around your business</p><h2>A website that works for you.</h2></div>
         <div className="home-about-copy">
-          <p>I bring design and engineering together, from logo design and visual identity to the complex business logic behind a website or application.</p>
-          <p>You work directly with me from the first conversation through launch. The person you talk to is the person making the design and technical decisions.</p>
+          <p>Great design is just the start. We build for fast loading, smooth desktop and mobile experiences, and security from the outset. Clear content and page structure help search engines and AI tools understand what you offer.</p>
+          <p>You’ll have someone who knows your project, listens to your needs, and keeps you informed from the first conversation to launch.</p>
           <Link href="/about" className="text-link">Meet the studio</Link>
         </div>
       </section>
@@ -107,7 +107,7 @@ export default function Home() {
           <div className="contact-copy" data-home-reveal>
             <p className="home-eyebrow">Let’s make something yours</p>
             <h2>What do you<br/>have in mind?</h2>
-            <p>A new business. A better website. A tool you wish existed. A short introduction is all we need to start.</p>
+            <p>A new business. A better website. A tool you wish existed. Tell us what you need, and we’ll work through the possibilities and next steps together.</p>
             <a className="text-link" href="mailto:hello@oddlogicstudio.com">hello@oddlogicstudio.com</a>
             <Mark className="home-contact-mark"/>
           </div>

@@ -1,0 +1,16 @@
+@media (prefers-reduced-motion: no-preference) {
+  .portfolio-page [data-home-reveal] {
+    transition: opacity .45s ease, transform .45s cubic-bezier(.2,.65,.25,1);
+  }
+  .portfolio-page [data-reveal-state="waiting"] {
+    transform: translateY(12px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce), print {
+  .portfolio-page [data-home-reveal] {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}

@@ -60,8 +60,8 @@ export function ProjectPreview({ project, variant = 'desktop', device = variant 
   </div>;
 }
 
-export function ProjectCard({ project }: { project: Project; index?: number; featured?: boolean }) {
-  return <article className="project-card project-card--equal">
+export function ProjectCard({ project, reveal = false }: { project: Project; index?: number; featured?: boolean; reveal?: boolean }) {
+  return <article className="project-card project-card--equal" data-home-reveal={reveal ? '' : undefined}>
     <Link className="project-visual project-preview-card" href={`/work/${project.slug}`} data-event="case_study_open" data-project={project.slug} aria-label={`View ${project.name} case study`}>
       <ProjectPreview project={project} variant={['buildplane', 'xray'].includes(project.asset) ? 'product' : 'desktop'} sizes="(max-width: 650px) calc(100vw - 88px), (max-width: 1100px) 42vw, 560px" />
       <span className="project-open"><Arrow diagonal /></span>

@@ -9,7 +9,7 @@ const serviceCopy: Record<string, string> = {
   'interactive-web-experiences': 'Illustrated worlds, guides, maps, and tools that invite people to explore and take part.',
   'web-applications': 'Portals, dashboards, and custom workflows that connect your data and make complicated tasks easier.',
 };
-const featuredProjects = ['center-of-the-universe-tulsa', 'osaka-garden', 'buildplane'].map(slug => projects.find(project => project.slug === slug)!);
+const featuredProjects = ['osaka-garden', 'center-of-the-universe-tulsa', 'buildplane'].map(slug => projects.find(project => project.slug === slug)!);
 const lakefront = projects.find(project => project.slug === 'lakefront-trail')!;
 const planet = projects.find(project => project.slug === 'a-planet-of-her-own')!;
 

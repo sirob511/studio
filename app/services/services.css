@@ -16,7 +16,7 @@
 .services-page .services-art-mark { position: absolute; z-index: 2; width: 69px; height: 69px; color: #d4ec8b; top: -10px; right: 26px; transform: rotate(12deg); }
 .services-page .services-art-mark circle { fill: var(--blue); }
 .services-page .services-hero-options { position: relative; display: grid; gap: 18px; }
-.services-page .services-hero-option { display: grid; grid-template-columns: 75px 1fr; gap: 16px; align-items: center; width: 92%; padding: 14px 21px; border: 1px solid #fff9; border-radius: 9px; background: var(--paper); box-shadow: 0 14px 30px #101a502e; transform: rotate(-4deg); transition: transform .3s, box-shadow .3s; }
+.services-page .services-hero-option { display: grid; grid-template-columns: 75px 1fr; gap: 16px; align-items: center; width: 92%; padding: 14px 21px; border: 1px solid #fff9; border-radius: 9px; background: var(--paper); box-shadow: 0 14px 30px #101a502e; transform: rotate(-4deg); transition: box-shadow .2s ease, color .2s ease; }
 .services-page .services-hero-option:nth-child(2) { margin-left: 8%; transform: rotate(3deg); }
 .services-page .services-hero-option:nth-child(3) { margin-left: 2%; transform: rotate(-2deg); }
 .services-page .services-hero-option > svg:first-child { width: 75px; height: 62px; color: var(--blue); stroke: currentColor; stroke-width: 1.5; }
@@ -24,7 +24,7 @@
 .services-page .service-symbol-cursor { fill: #d4ec8b; }
 .services-page .service-symbol-check { stroke: var(--paper); }
 .services-page .services-hero-option strong { display: block; font-family: var(--display); font-size: clamp(21px, 2vw, 27px); font-weight: 500; line-height: 1.15; letter-spacing: -.025em; }
-.services-page .services-hero-option:hover { transform: rotate(0) translateY(-4px); box-shadow: 0 18px 36px #101a5042; }
+.services-page .services-hero-option:hover { box-shadow: 0 16px 32px #101a5033; }
 .services-page .services-hero-option:focus-visible { outline: 3px solid var(--ink); outline-offset: 5px; }
 .services-page .services-detail { padding-bottom: 30px; }
 .services-page .services-detail .service-detail { grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr); align-items: center; gap: 7%; padding-block: 70px; scroll-margin-top: 32px; }
@@ -65,8 +65,9 @@
 .services-page .services-faq details p { padding: 0 50px 25px 0; font-size: 16px; line-height: 1.7; }
 @media (prefers-reduced-motion: no-preference) {
   .services-page .services-hero-copy { animation: home-copy-in .75s both; }
-  .services-page .services-hero-art { animation: home-art-in 1s .12s both; }
+  .services-page .services-hero-art { animation: services-art-fade .55s .08s both; }
 }
+@keyframes services-art-fade { from { opacity: 0; } to { opacity: 1; } }
 @media (min-width: 901px) {
   .services-page .service-detail:nth-child(even) { grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr); }
   .services-page .service-detail:nth-child(even) > .service-intro { grid-column: 2; grid-row: 1; }

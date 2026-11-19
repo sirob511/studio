@@ -7,7 +7,7 @@ import {projects} from '@/lib/projects';
 import {Arrow,Mark,Wordmark} from './shared';
 const navigationItems = [
  {href:'/',label:'Home'},
- {href:'/work',label:'Work'},
+ {href:'/work',label:'Portfolio'},
  {href:'/services',label:'Services'},
  {href:'/about',label:'About'},
 ];
@@ -21,7 +21,7 @@ function HeaderNavigation({path}:{path:string}){
  const [open,setOpen]=useState(false);
  function navigate(href:string):NonNullable<LinkProps['onNavigate']>{
   return event=>{
-   // Section links still navigate back from a project to its Work overview.
+   // Section links still navigate back from a project to its Portfolio overview.
    if(path===href)event.preventDefault();
    setOpen(false);
   };

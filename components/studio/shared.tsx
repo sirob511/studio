@@ -78,7 +78,7 @@ export function Footer() {
         <a className="footer-email" href="mailto:hello@oddlogicstudio.com">hello@oddlogicstudio.com</a>
         <nav className="footer-links" aria-label="Footer navigation">
           <Link href="/">Home</Link>
-          <Link href="/work">Work</Link>
+          <Link href="/work">Portfolio</Link>
           <Link href="/services">Services</Link>
           <Link href="/about">About</Link>
           <Link href="/contact" data-event="start_project">Contact</Link>

@@ -16,7 +16,7 @@ export default function Home() {
         <div className="home-intro-bottom">
           <p>Distinctive websites and useful web applications, designed and built around your business.</p>
           <div className="home-actions">
-            <a className="text-link" href="/work">View work <Arrow/></a>
+            <a className="text-link" href="/work">View portfolio <Arrow/></a>
           </div>
         </div>
       </section>

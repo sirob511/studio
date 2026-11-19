@@ -37,6 +37,9 @@ export async function generateMetadata({
 }
 
 function attribution(project: Project) {
+  if (project.credit === 'Studio project') {
+    return 'Designed and developed by Odd Logic Studio.';
+  }
   if (project.credit === 'Odd Logic AI product') {
     return 'Built by Odd Logic AI, the studio’s product business.';
   }
@@ -65,7 +68,7 @@ export default async function CaseStudy({
   return (
     <main id="main" className="case-page">
       <div className="wrap">
-        <a href="/work" className="back-link">← All work</a>
+        <a href="/work" className="back-link">← All projects</a>
 
         <section className="case-heading case-heading--compact">
           <h1>{project.name}<span className="blue">.</span></h1>
@@ -156,7 +159,7 @@ export default async function CaseStudy({
         )}
 
         <nav className="case-end-nav" aria-label="More projects">
-          <a href="/work">← All work</a>
+          <a href="/work">← All projects</a>
           <a
             href={`/work/${next.slug}`}
             data-event="case_study_open"

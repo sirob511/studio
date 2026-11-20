@@ -432,5 +432,27 @@
       "No horizontal overflow or browser JavaScript errors; visual review of desktop and mobile screenshots"
     ],
     "build": "Node 24 Next.js production webpack build, TypeScript, scoped ESLint, and git diff --check passed"
+  },
+  "portfolio_centered_headings_revision": {
+    "checked_on": "2026-11-20",
+    "summary": "Centered the Portfolio title above its ornamental divider and centered each project title, subtitle, and live-link row. Portfolio retains the Bricolage display face; project names use Instrument at medium weight. Screenshot captions remain left aligned.",
+    "viewport_widths": [
+      320,
+      390,
+      650,
+      768,
+      1440,
+      1920
+    ],
+    "checks": [
+      "All ten project headings, subtitles, and live-link rows align with the content center at all six widths",
+      "Distinct title typefaces confirmed in computed styles; balanced wrapping on narrow screens",
+      "All live links keep at least 44px tap targets; no horizontal overflow or browser JavaScript errors",
+      "First preview starts around 333px on a 390px phone, 365px on a 320px phone, and 352px on desktop",
+      "Ten decorative studio-mark dividers are hidden from assistive technology",
+      "Screenshot captions remain left aligned; direct project anchors work with reduced motion",
+      "Visual review of first project and BuildPlane at desktop and phone sizes"
+    ],
+    "build": "Node 24 Next.js production webpack build, TypeScript, scoped ESLint, and git diff --check passed"
   }
 }

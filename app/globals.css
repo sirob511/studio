@@ -16,7 +16,8 @@ html{scrollbar-gutter:stable}
 .header{height:84px;gap:32px}
 .wordmark{font-size:24px}
 .wordmark svg{width:35px;height:35px}
-.nav{gap:26px}
+.nav{gap:28px;font-family:var(--display);font-size:16px;font-weight:500;letter-spacing:-.015em}
+.nav a{display:inline-flex;align-items:center;min-height:44px}
 
 .section{padding-top:76px;padding-bottom:76px}
 .page-heading{padding:42px 0 36px;max-width:1000px}
@@ -49,8 +50,12 @@ html{scrollbar-gutter:stable}
 
 @media(max-width:760px){
  .header{gap:18px}
- .nav{gap:17px;font-size:13px}
-
+ .nav{display:none}
+ .nav-cta{margin-left:auto;white-space:nowrap;flex-shrink:0}
+ .menu-toggle{display:flex;align-items:center;gap:6px;min-height:44px;border:0;background:transparent;padding:8px 0;color:var(--ink);font-size:11px}
+ .menu-toggle span{font-size:19px}
+ .nav-open{display:flex;position:absolute;top:83px;right:0;left:0;background:var(--paper);padding:16px 20px;border:1px solid var(--line);gap:4px;flex-direction:column;align-items:start;box-shadow:0 15px 25px #00000008}
+ .nav-open a{font-size:22px;line-height:1.2;width:100%}
 }
 @media(max-width:650px){
  .header{height:72px;gap:14px}

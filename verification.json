@@ -454,5 +454,29 @@
       "Visual review of first project and BuildPlane at desktop and phone sizes"
     ],
     "build": "Node 24 Next.js production webpack build, TypeScript, scoped ESLint, and git diff --check passed"
+  },
+  "navigation_typography_revision": {
+    "checked_on": "2026-11-20",
+    "summary": "Shared navigation uses medium-weight Bricolage at 16px on desktop and 22px in the compact menu. The compact menu begins at 760px to keep the header balanced. The centered page heading reads Selected Portfolio, with responsive sizing on narrow phones.",
+    "viewport_widths": [
+      320,
+      390,
+      650,
+      651,
+      760,
+      761,
+      768,
+      1024,
+      1440,
+      1920
+    ],
+    "checks": [
+      "All four navigation links use Bricolage at weight 500 and retain at least 44px tap targets",
+      "No horizontal overflow, logo/navigation/CTA overlap on desktop, or wrapped header CTA at any tested width",
+      "Selected Portfolio heading stays on one line at all tested widths",
+      "Portfolio active state is blue; navigating to Services updates the active state and closes the compact menu",
+      "No browser JavaScript errors; visual review of phone, narrow tablet, and desktop screenshots"
+    ],
+    "build": "Node 24 Next.js production webpack build, TypeScript, and git diff --check passed"
   }
 }

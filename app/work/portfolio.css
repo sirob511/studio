@@ -112,7 +112,7 @@
   }
 
   .portfolio-toolbar h1 {
-    font-size: 36px;
+    font-size: clamp(32px, 10vw, 36px);
   }
 
   .portfolio-project {

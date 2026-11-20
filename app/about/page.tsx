@@ -13,6 +13,7 @@ export const metadata: Metadata = {
 };
 
 const osaka = projects.find(project => project.slug === 'osaka-garden')!;
+const tulsa = projects.find(project => project.slug === 'center-of-the-universe-tulsa')!;
 const buildplane = projects.find(project => project.slug === 'buildplane')!;
 const benefits = [
   {
@@ -64,12 +65,15 @@ export default function About() {
           <div className="about-hero-art">
             <div className="about-studio-board" aria-hidden="true">
               <span className="about-board-orbit"/>
-              <p>Good ideas.<br/>Made real.</p>
             </div>
             <Mark className="about-hero-mark"/>
-            <Link href="/work#osaka-garden" className="about-project-window" data-event="portfolio_project_open" data-project="osaka-garden" aria-label="Explore the Osaka Garden project">
-              <span className="about-window-bar"><span>Osaka Garden</span><span>Explore project</span></span>
+            <Link href="/work#osaka-garden" className="about-project-window about-project-window--primary" data-event="portfolio_project_open" data-project="osaka-garden" aria-label="Explore the Osaka Garden project">
+              <span className="about-window-bar">Osaka Garden</span>
               <ProjectImage project={osaka} priority sizes="(max-width: 650px) 90vw, (max-width: 900px) 70vw, 42vw"/>
+            </Link>
+            <Link href="/work#center-of-the-universe-tulsa" className="about-project-window about-project-window--secondary" data-event="portfolio_project_open" data-project="center-of-the-universe-tulsa" aria-label="Explore the Center of the Universe project">
+              <ProjectImage project={tulsa} priority sizes="(max-width: 650px) 60vw, (max-width: 900px) 45vw, 28vw"/>
+              <span className="about-project-label">Center of the Universe</span>
             </Link>
           </div>
         </div>

@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { projects } from '@/lib/projects';
-import { Arrow, ProjectPreview } from '@/components/studio/shared';
+import { Arrow, Mark, ProjectPreview } from '@/components/studio/shared';
 import { HomeMotion } from '@/components/studio/home-motion';
 import { PageClosing } from '@/components/studio/page-closing';
 import './portfolio.css';
@@ -25,6 +25,7 @@ export default function Portfolio() {
 
           return (
             <section className="portfolio-project" id={project.slug} aria-labelledby={`${project.slug}-title`} key={project.slug}>
+              {index > 0 && <div className="portfolio-divider" aria-hidden="true"><Mark /></div>}
               <header className="case-heading case-heading--compact">
                 <h2 id={`${project.slug}-title`} data-portfolio-project={project.slug}>{project.name}</h2>
                 <p className="portfolio-project-lede">{project.short}</p>
@@ -48,7 +49,6 @@ export default function Portfolio() {
                   <div className="annotation">
                     <h3>{project.decisions[0].title}</h3>
                     <p>{project.decisions[0].text}</p>
-                    <p className="portfolio-project-context">{project.intro}</p>
                   </div>
                 </div>
 

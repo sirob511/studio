@@ -1,24 +1,41 @@
 .portfolio-toolbar {
-  padding-block: 16px;
+  padding-block: 22px 34px;
 }
 
 .portfolio-toolbar h1 {
   margin: 0;
-  font-size: 30px;
+  font-size: 44px;
   line-height: 1.15;
   letter-spacing: -.04em;
 }
 
 .portfolio-project {
-  padding-block: 24px;
+  padding-bottom: 26px;
 }
 
 .portfolio-toolbar + .portfolio-project {
   padding-top: 0;
 }
 
-.portfolio-project + .portfolio-project {
-  border-top: 1px solid var(--line);
+.portfolio-divider {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 28px;
+  color: var(--blue);
+}
+
+.portfolio-divider::before,
+.portfolio-divider::after {
+  content: '';
+  height: 1px;
+  flex: 1;
+  background: var(--line);
+}
+
+.portfolio-divider svg {
+  width: 16px;
+  height: 16px;
 }
 
 .portfolio-project .case-heading {
@@ -71,15 +88,10 @@
   font-size: 23px;
 }
 
-.portfolio-project .annotation p,
-.portfolio-project-context {
+.portfolio-project .annotation p {
   font-size: 16px;
   line-height: 1.65;
-}
-
-.portfolio-project .annotation .portfolio-project-context {
-  margin-top: 10px;
-  color: var(--muted);
+  max-width: 62ch;
 }
 
 .portfolio-page .studio-closing {
@@ -88,15 +100,20 @@
 
 @media (max-width: 650px) {
   .portfolio-toolbar {
-    padding-block: 12px;
+    padding-block: 16px 26px;
   }
 
   .portfolio-toolbar h1 {
-    font-size: 26px;
+    font-size: 36px;
   }
 
   .portfolio-project {
-    padding-block: 20px;
+    padding-bottom: 24px;
+  }
+
+  .portfolio-divider {
+    gap: 12px;
+    margin-bottom: 24px;
   }
 
   .portfolio-project .case-heading {

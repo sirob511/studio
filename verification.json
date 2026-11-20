@@ -403,5 +403,34 @@
       "Visual review of the first viewport, BuildPlane, and Centennial Fountain on desktop and phone"
     ],
     "build": "Node 24 Next.js production webpack build and TypeScript passed; scoped ESLint and git diff --check passed"
+  },
+  "about_pair_and_portfolio_balance_revision": {
+    "checked_on": "2026-11-20",
+    "summary": "About hero pairs a large upper Osaka Garden preview with a smaller Center of the Universe preview. Portfolio has a distinct page title, concise screenshot captions, and fine dividers with small studio-mark ornaments.",
+    "viewport_widths": [
+      320,
+      390,
+      650,
+      768,
+      900,
+      1024,
+      1440,
+      1920
+    ],
+    "project_description_words": {
+      "before": 814,
+      "after": 344,
+      "reduction_percent": 58
+    },
+    "checks": [
+      "Both About previews load in full proportions, remain within the viewport, and keep Osaka above and larger than the second site at all eight widths",
+      "Keyboard activation of both About hero links reaches the matching Portfolio section with reduced motion enabled",
+      "Portfolio title has a distinct size and 26px mobile / 34px desktop separation from the first project heading",
+      "Each screenshot has one paragraph of 20 words or fewer; repeated project introductions removed",
+      "Nine ornamental dividers are decorative and hidden from assistive technology",
+      "First Portfolio preview starts around 340px on narrow phones and 281px on desktop",
+      "No horizontal overflow or browser JavaScript errors; visual review of desktop and mobile screenshots"
+    ],
+    "build": "Node 24 Next.js production webpack build, TypeScript, scoped ESLint, and git diff --check passed"
   }
 }

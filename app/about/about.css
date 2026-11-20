@@ -7,16 +7,20 @@
 .about-hero-copy .home-portfolio-link { gap: 22px; }
 .about-hero-art { position: relative; min-width: 0; height: clamp(450px, 40vw, 560px); }
 .about-studio-board { position: absolute; inset: 8px 0 24px 24px; overflow: hidden; border-radius: 110px 24px 90px 24px; background: radial-gradient(circle, #ffffff24 .8px, transparent 1px) 0 0 / 22px 22px, linear-gradient(145deg, #284fe3, #18349f); }
-.about-studio-board > p { position: absolute; left: 55px; top: 36px; color: #fff; font-family: var(--display); font-size: 30px; line-height: 1.1; letter-spacing: -.04em; }
 .about-board-orbit { position: absolute; inset: 27px; border: 1px solid #ffffff29; border-radius: 50%; }
 .about-board-orbit::after { content: ''; position: absolute; inset: 46px; border: 1px solid #ffffff24; border-radius: 50%; }
-.about-hero-mark { position: absolute; width: 100px; height: 100px; right: 22px; top: -8px; color: #d4ec8b; transform: rotate(12deg); }
+.about-hero-mark { position: absolute; z-index: 3; width: 100px; height: 100px; right: 22px; top: -8px; color: #d4ec8b; transform: rotate(12deg); }
 .about-hero-mark circle { fill: #284fe3; }
-.about-project-window { position: absolute; display: block; width: 88%; left: 0; top: 135px; border-radius: 9px; overflow: hidden; background: var(--paper); border: 1px solid #ffffffb3; box-shadow: 0 24px 50px #101a5036; transform: rotate(-5deg); transition: transform .4s, box-shadow .4s; }
-.about-project-window:hover { transform: rotate(-2deg) translateY(-5px); box-shadow: 0 30px 55px #101a5045; }
+.about-project-window { position: absolute; display: block; border-radius: 9px; overflow: hidden; background: var(--paper); border: 1px solid #ffffffb3; box-shadow: 0 24px 50px #101a5036; transition: transform .4s, box-shadow .4s; }
+.about-project-window--primary { width: 94%; left: 0; top: 56px; z-index: 1; transform: rotate(-5deg); }
+.about-project-window--secondary { width: 62%; right: 0; bottom: 0; z-index: 2; transform: rotate(6deg); background: #172126; }
+.about-project-label { display: block; padding: 9px 14px; color: #faf9f5; font-size: 13px; line-height: 1.4; border-top: 1px solid #ffffff24; }
+.about-project-window:hover { box-shadow: 0 30px 55px #101a5045; }
+.about-project-window--primary:hover { transform: rotate(-2deg) translateY(-5px); }
+.about-project-window--secondary:hover { transform: rotate(3deg) translateY(-5px); }
 .about-project-window img, .about-product-window img { display: block; width: 100%; height: auto; }
 .about-window-bar { display: flex; justify-content: space-between; align-items: center; gap: 20px; padding: 10px 14px; font-size: 12px; line-height: 1.4; color: #565b56; background: var(--paper); border-bottom: 1px solid #20201e12; }
-.about-project-window:focus-visible { outline: 4px solid var(--ink); outline-offset: 5px; }
+.about-project-window:focus-visible { z-index: 4; outline: 4px solid var(--ink); outline-offset: 5px; }
 .about-profile { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: 12%; padding-block: 68px 86px; border-top: 1px solid var(--line); }
 .about-profile-heading h2 { font-size: clamp(34px, 3.5vw, 50px); line-height: 1.12; margin-top: 20px; }
 .about-profile-heading .text-link { margin-top: 24px; }
@@ -50,9 +54,9 @@
   .about-hero-inner { gap: 30px; }
   .about-hero-copy h1 { font-size: 60px; }
   .about-hero-description { font-size: 18px; }
-  .about-studio-board > p { left: 36px; }
   .about-hero-mark { width: 80px; height: 80px; right: 12px; }
-  .about-project-window { width: 96%; top: 145px; }
+  .about-project-window--primary { width: 96%; top: 58px; }
+  .about-project-window--secondary { width: 67%; bottom: 24px; }
   .about-profile { gap: 7%; }
   .about-benefit-grid { gap: 28px; }
   .about-products { gap: 5%; }
@@ -63,8 +67,8 @@
   .about-hero-copy h1 { font-size: clamp(54px, 7.5vw, 68px); }
   .about-hero-description { max-width: 540px; }
   .about-hero-art { width: 90%; max-width: 620px; height: 550px; margin: 20px auto 0; }
-  .about-project-window { width: 88%; top: 135px; }
-  .about-studio-board > p { left: 55px; }
+  .about-project-window--primary { width: 90%; top: 45px; }
+  .about-project-window--secondary { width: 60%; bottom: 0; }
   .about-profile { grid-template-columns: 1fr; gap: 28px; padding-block: 55px 65px; }
   .about-profile-heading .text-link { margin-top: 18px; }
   .about-profile-copy { max-width: 700px; }
@@ -83,9 +87,10 @@
   .about-hero-description { font-size: 17px; margin-top: 28px; }
   .about-hero-art { width: 100%; height: clamp(335px, 96vw, 530px); margin-top: 24px; }
   .about-studio-board { inset: 0 0 16px 10px; border-radius: 75px 17px 65px 17px; }
-  .about-studio-board > p { top: 24px; left: 36px; font-size: 26px; }
   .about-hero-mark { width: 62px; height: 62px; right: 15px; top: -12px; }
-  .about-project-window { width: 95%; top: 114px; }
+  .about-project-window--primary { width: 93%; top: 36px; transform: rotate(-3deg); }
+  .about-project-window--secondary { width: 63%; transform: rotate(4deg); }
+  .about-project-label { padding: 7px 10px; font-size: 11px; }
   .about-window-bar { padding: 8px 10px; gap: 10px; font-size: 11px; }
   .about-profile { padding-block: 42px 50px; gap: 28px; }
   .about-profile-heading h2 { font-size: 38px; }

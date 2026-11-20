@@ -21,7 +21,6 @@ function HeaderNavigation({path}:{path:string}){
  const [open,setOpen]=useState(false);
  function navigate(href:string):NonNullable<LinkProps['onNavigate']>{
   return event=>{
-   // Section links still navigate back from a project to its Portfolio overview.
    if(path===href)event.preventDefault();
    setOpen(false);
   };
@@ -37,7 +36,7 @@ function HeaderNavigation({path}:{path:string}){
 }
 
 let measurementEnabled=false;
-const eventNames=new Set(['case_study_open','case_study_view','outbound_portfolio','start_project','inquiry_success']);
+const eventNames=new Set(['portfolio_project_open','portfolio_project_view','outbound_portfolio','start_project','inquiry_success']);
 export function Analytics({enabled}:{enabled:boolean}){
  const path=usePathname();
  useEffect(()=>{
@@ -57,7 +56,19 @@ export function Analytics({enabled}:{enabled:boolean}){
   document.addEventListener('click',handle);
   return()=>{measurementEnabled=false;document.removeEventListener('click',handle)};
  },[enabled]);
- useEffect(()=>{if(path.startsWith('/work/'))track('case_study_view',path.split('/')[2])},[path,enabled]);
+ useEffect(()=>{
+  if(path!=='/work'||!measurementEnabled||!('IntersectionObserver' in window))return;
+  const observer=new IntersectionObserver(entries=>{
+   entries.forEach(entry=>{
+    if(!entry.isIntersecting)return;
+    const project=(entry.target as HTMLElement).dataset.portfolioProject;
+    if(project)track('portfolio_project_view',project);
+    observer.unobserve(entry.target);
+   });
+  },{threshold:0.5});
+  document.querySelectorAll('[data-portfolio-project]').forEach(heading=>observer.observe(heading));
+  return()=>observer.disconnect();
+ },[path,enabled]);
  return null;
 }
 export function track(event:string,project=''){

@@ -62,11 +62,11 @@ export function ProjectPreview({ project, variant = 'desktop', device = variant 
 
 export function ProjectCard({ project, reveal = false }: { project: Project; index?: number; featured?: boolean; reveal?: boolean }) {
   return <article className="project-card project-card--equal" data-home-reveal={reveal ? '' : undefined}>
-    <Link className="project-visual project-preview-card" href={`/work/${project.slug}`} data-event="case_study_open" data-project={project.slug} aria-label={`View ${project.name} case study`}>
+    <Link className="project-visual project-preview-card" href={`/work#${project.slug}`} data-event="portfolio_project_open" data-project={project.slug} aria-label={`View ${project.name} project`}>
       <ProjectPreview project={project} variant={['buildplane', 'xray'].includes(project.asset) ? 'product' : 'desktop'} sizes="(max-width: 650px) calc(100vw - 88px), (max-width: 1100px) 42vw, 560px" />
       <span className="project-open"><Arrow diagonal /></span>
     </Link>
-    <div className="project-caption"><div><h3><Link href={`/work/${project.slug}`} data-event="case_study_open" data-project={project.slug}>{project.name}</Link></h3><p>{project.short}</p></div></div>
+    <div className="project-caption"><div><h3><Link href={`/work#${project.slug}`} data-event="portfolio_project_open" data-project={project.slug}>{project.name}</Link></h3><p>{project.short}</p></div></div>
   </article>;
 }
 

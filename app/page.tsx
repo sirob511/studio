@@ -52,11 +52,11 @@ export default function Home() {
           <div className="home-hero-art" aria-label="A glimpse of our projects">
             <div className="home-art-backdrop" aria-hidden="true"><span className="home-art-orbit"/><span className="home-art-orbit home-art-orbit--inner"/></div>
             <Mark className="home-art-mark" />
-            <Link className="home-hero-window home-hero-window--map" href={`/work/${lakefront.slug}`} data-event="case_study_open" data-project={lakefront.slug} aria-label="Explore the Lakefront Trail project">
-              <span className="home-window-bar"><span className="home-window-dots" aria-hidden="true"><i/><i/><i/></span><span>Lakefront Trail</span></span>
+            <Link className="home-hero-window home-hero-window--map" href={`/work#${lakefront.slug}`} data-event="portfolio_project_open" data-project={lakefront.slug} aria-label="Explore the Chicago Lakefront Trail Atlas project">
+              <span className="home-window-bar"><span className="home-window-dots" aria-hidden="true"><i/><i/><i/></span><span>Chicago Lakefront Trail Atlas</span></span>
               <ProjectImage project={lakefront} priority sizes="(max-width: 650px) 86vw, (max-width: 900px) 70vw, 44vw" />
             </Link>
-            <Link className="home-hero-window home-hero-window--planet" href={`/work/${planet.slug}`} data-event="case_study_open" data-project={planet.slug} aria-label="Explore A Planet of Her Own">
+            <Link className="home-hero-window home-hero-window--planet" href={`/work#${planet.slug}`} data-event="portfolio_project_open" data-project={planet.slug} aria-label="Explore A Planet of Her Own">
               <ProjectImage project={planet} priority sizes="(max-width: 650px) 57vw, (max-width: 900px) 43vw, 28vw" />
               <span className="home-window-label">A Planet of Her Own</span>
             </Link>
@@ -71,7 +71,7 @@ export default function Home() {
         </div>
         <div className="home-selected-grid">
           {featuredProjects.map(project => (
-            <Link className="home-selected-project" href={`/work/${project.slug}`} key={project.slug} data-event="case_study_open" data-project={project.slug} data-home-reveal>
+            <Link className="home-selected-project" href={`/work#${project.slug}`} key={project.slug} data-event="portfolio_project_open" data-project={project.slug} data-home-reveal>
               <div className="home-selected-image"><ProjectImage project={project} variant={project.asset === 'buildplane' ? 'product' : 'desktop'} sizes="(max-width: 650px) calc(100vw - 40px), (max-width: 900px) 45vw, 31vw" /></div>
               <div className="home-selected-caption"><h3>{project.name}</h3><span>{project.category}</span></div>
               <p>{project.short}</p>

@@ -70,13 +70,13 @@
   line-height: 1;
 }
 
+/* Preserve the width/height aspect ratio while lazy images load to prevent layout shifts. */
 .project-preview img.project-device-image {
   display: block;
   width: 100%;
   max-width: 100%;
   height: auto;
   min-height: 0;
-  aspect-ratio: auto;
   object-fit: contain;
   object-position: center;
   transform: none;

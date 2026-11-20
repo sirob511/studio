@@ -45,7 +45,7 @@
 .services-page .service-detail--interactive-web-experiences .service-example-stage { background-color: #ece8f2; border-radius: 15px 70px 15px 70px; }
 .services-page .service-detail--web-applications .service-example-stage { background-color: #e7ecd9; }
 .services-page .service-device-example > .service-example-caption { display: flex; align-items: end; justify-content: space-between; gap: 16px; padding: 18px 0 0; font-size: 17px; }
-.services-page .service-example-caption > span > small { display: block; margin-bottom: 5px; color: var(--muted); font-size: 12px; }
+.services-page .service-example-caption > span > small { display: block; margin-top: 6px; color: var(--blue); font-size: 14px; font-weight: 600; text-decoration: underline; text-underline-offset: 4px; }
 .services-page .service-example-caption > svg { width: 22px; height: 22px; color: var(--blue); }
 .services-page .service-example:hover .service-example-caption { color: var(--blue); }
 .services-page .service-example:focus-visible { outline: 3px solid var(--blue); outline-offset: 7px; }

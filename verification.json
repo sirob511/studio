@@ -352,5 +352,31 @@
       "No browser JavaScript errors or horizontal overflow; no form submissions"
     ],
     "build": "Next.js production webpack build, TypeScript, and scoped interactive.tsx lint passed"
+  },
+  "portfolio_consolidation_revision": {
+    "checked_on": "2026-11-20",
+    "summary": "Combined all ten projects on the Portfolio page using the existing desktop/mobile showcase layout; removed ownership credits and repeated case-study navigation; Services examples now link directly to live sites in new tabs; renamed Chicago Lakefront Trail Atlas.",
+    "viewport_widths": [
+      320,
+      390,
+      430,
+      768,
+      1440
+    ],
+    "rendered_image_checks": 100,
+    "checks": [
+      "Ten permanent redirects preserve query strings; unknown project 404; sitemap has six canonical pages",
+      "All 100 device-image checks loaded without distortion; no horizontal overflow at five viewport widths",
+      "Mobile jump disclosure works by keyboard; old project link and jump link land at the matching title",
+      "Both walkthroughs play on demand; no autoplay or video preload",
+      "Home and About navigate directly to project sections",
+      "All Services examples show Visit live site; tested new-tab behavior without visiting third-party content",
+      "Project view analytics track once per visit, strip query/hash, and honor Do Not Track; reduced-motion content remains visible",
+      "Content and mobile project navigation work without JavaScript",
+      "No browser JavaScript errors",
+      "All three Services live destinations returned HTTP 200",
+      "Removed an aspect-ratio override that caused lazy image layout shifts and incorrect direct-anchor positioning"
+    ],
+    "build": "Node 24 Next.js production webpack build and TypeScript passed"
   }
 }

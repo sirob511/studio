@@ -85,9 +85,11 @@ export default function Services() {
 
               <a
                 className={`service-example service-device-example${isApplication ? ' service-example--application' : ''}`}
-                href={`/work/${project.slug}`}
-                aria-label={`View ${project.name} case study`}
-                data-event="case_study_open"
+                href={project.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`Visit live site: ${project.name} (opens in a new tab)`}
+                data-event="outbound_portfolio"
                 data-project={project.slug}
               >
                 <div className="service-example-stage">
@@ -103,7 +105,7 @@ export default function Services() {
                     {!isApplication && <ProjectPreview project={project} variant="mobile" />}
                   </div>
                 </div>
-                <span className="service-example-caption"><span><small>See it in action</small>{project.name}</span><Arrow diagonal /></span>
+                <span className="service-example-caption"><span>{project.name}<small>Visit live site</small></span><Arrow diagonal /></span>
               </a>
             </section>
           );

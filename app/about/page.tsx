@@ -67,7 +67,7 @@ export default function About() {
               <p>Good ideas.<br/>Made real.</p>
             </div>
             <Mark className="about-hero-mark"/>
-            <Link href="/work/osaka-garden" className="about-project-window" data-event="case_study_open" data-project="osaka-garden" aria-label="Explore the Osaka Garden project">
+            <Link href="/work#osaka-garden" className="about-project-window" data-event="portfolio_project_open" data-project="osaka-garden" aria-label="Explore the Osaka Garden project">
               <span className="about-window-bar"><span>Osaka Garden</span><span>Explore project</span></span>
               <ProjectImage project={osaka} priority sizes="(max-width: 650px) 90vw, (max-width: 900px) 70vw, 42vw"/>
             </Link>
@@ -114,7 +114,7 @@ export default function About() {
           <a href="https://oddlogic.ai/" target="_blank" rel="noopener noreferrer" className="text-link" data-event="outbound_portfolio" data-project="oddlogic-ai">Explore Odd Logic AI<Arrow diagonal/></a>
         </div>
         <div className="about-products-art" data-home-reveal>
-          <Link href="/work/buildplane" className="about-product-window" data-event="case_study_open" data-project="buildplane" aria-label="Explore the BuildPlane project">
+          <Link href="/work#buildplane" className="about-product-window" data-event="portfolio_project_open" data-project="buildplane" aria-label="Explore the BuildPlane project">
             <span className="about-window-bar"><span>BuildPlane</span><span>From idea to application</span></span>
             <ProjectImage project={buildplane} variant="product" sizes="(max-width: 650px) 86vw, (max-width: 900px) 70vw, 42vw"/>
           </Link>

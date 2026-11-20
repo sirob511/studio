@@ -17,7 +17,7 @@ export default function Portfolio() {
       <HomeMotion rootSelector=".portfolio-page" revealAhead={160} />
       <div className="wrap">
         <header className="portfolio-toolbar">
-          <h1>Portfolio<span className="blue">.</span></h1>
+          <h1>Selected Work<span className="blue">.</span></h1>
           <div className="portfolio-divider" aria-hidden="true"><Mark /></div>
         </header>
 

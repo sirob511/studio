@@ -2,7 +2,7 @@
 import {useEffect} from 'react';
 
 /** Content stays visible without JavaScript; only offscreen sections get an entrance. */
-export function HomeMotion({rootSelector = '.home-page'}: {rootSelector?: string}) {
+export function HomeMotion({rootSelector = '.home-page', revealAhead = 0}: {rootSelector?: string; revealAhead?: number}) {
   useEffect(() => {
     const root = document.querySelector(rootSelector);
     const preference = window.matchMedia('(prefers-reduced-motion: reduce)');
@@ -15,9 +15,9 @@ export function HomeMotion({rootSelector = '.home-page'}: {rootSelector?: string
           observer.unobserve(entry.target);
         }
       });
-    }, {threshold: 0.08});
+    }, {threshold: revealAhead > 0 ? 0 : 0.08, rootMargin: `0px 0px ${revealAhead}px 0px`});
     elements.forEach(element => {
-      if (element.getBoundingClientRect().top >= window.innerHeight) {
+      if (element.getBoundingClientRect().top >= window.innerHeight + revealAhead) {
         element.dataset.revealState = 'waiting';
         observer.observe(element);
       }
@@ -41,6 +41,6 @@ export function HomeMotion({rootSelector = '.home-page'}: {rootSelector?: string
       root.removeEventListener('focusin', revealFocused);
       preference.removeEventListener('change', revealAll);
     };
-  }, [rootSelector]);
+  }, [rootSelector, revealAhead]);
   return null;
 }

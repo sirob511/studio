@@ -378,5 +378,30 @@
       "Removed an aspect-ratio override that caused lazy image layout shifts and incorrect direct-anchor positioning"
     ],
     "build": "Node 24 Next.js production webpack build and TypeScript passed"
+  },
+  "portfolio_spacing_revision": {
+    "checked_on": "2026-11-20",
+    "summary": "Compact Portfolio heading without project index; tighter project spacing, no trailing project-title dots or walkthrough videos; context paragraphs sit directly beneath their design notes. Preview-only reveals begin 160px before entering view with subtle movement and no invisible content.",
+    "viewport_widths": [
+      320,
+      390,
+      768,
+      1440,
+      1920
+    ],
+    "first_preview_top_px": {
+      "mobile": 310,
+      "desktop": 241
+    },
+    "paragraph_gap_px": 10,
+    "checks": [
+      "All ten projects retain loaded desktop/mobile images in their full proportions across five viewport widths",
+      "No horizontal overflow, browser JavaScript errors, or measured layout shifts",
+      "Project index, videos, and trailing project-header dots absent",
+      "Direct project anchors work with reduced motion and without JavaScript",
+      "Reduced-motion preference disables entrance movement; content remains visible during fast scroll",
+      "Visual review of the first viewport, BuildPlane, and Centennial Fountain on desktop and phone"
+    ],
+    "build": "Node 24 Next.js production webpack build and TypeScript passed; scoped ESLint and git diff --check passed"
   }
 }

@@ -1,7 +1,6 @@
 import type { Metadata } from 'next';
 import { projects } from '@/lib/projects';
 import { Arrow, ProjectPreview } from '@/components/studio/shared';
-import { Clip } from '@/components/studio/interactive';
 import { HomeMotion } from '@/components/studio/home-motion';
 import { PageClosing } from '@/components/studio/page-closing';
 import './portfolio.css';
@@ -12,46 +11,24 @@ export const metadata: Metadata = {
   alternates: { canonical: '/work' },
 };
 
-function ProjectLinks() {
-  return (
-    <ul>
-      {projects.map(project => (
-        <li key={project.slug}>
-          <a href={`#${project.slug}`} data-event="portfolio_project_open" data-project={project.slug}>{project.name}</a>
-        </li>
-      ))}
-    </ul>
-  );
-}
-
 export default function Portfolio() {
   return (
     <main id="main" className="portfolio-page">
-      <HomeMotion rootSelector=".portfolio-page" />
+      <HomeMotion rootSelector=".portfolio-page" revealAhead={160} />
       <div className="wrap">
-        <section className="page-heading">
+        <header className="portfolio-toolbar">
           <h1>Portfolio<span className="blue">.</span></h1>
-          <p>Custom websites, interactive guides, and applications. Take a closer look at the work, then try it for yourself.</p>
-        </section>
-
-        <nav className="portfolio-jump portfolio-jump-desktop" aria-label="Jump to a project">
-          <p>Jump to a project</p>
-          <ProjectLinks />
-        </nav>
-        <details className="portfolio-jump portfolio-jump-mobile">
-          <summary>Jump to a project<span aria-hidden="true">+</span></summary>
-          <nav aria-label="Jump to a project"><ProjectLinks /></nav>
-        </details>
+        </header>
 
         {projects.map((project, index) => {
           const isProduct = ['buildplane', 'xray'].includes(project.asset);
 
           return (
             <section className="portfolio-project" id={project.slug} aria-labelledby={`${project.slug}-title`} key={project.slug}>
-              <header className="case-heading case-heading--compact" data-home-reveal>
-                <h2 id={`${project.slug}-title`} data-portfolio-project={project.slug}>{project.name}<span className="blue">.</span></h2>
-                <div className="case-heading-bottom">
-                  <p>{project.short}</p>
+              <header className="case-heading case-heading--compact">
+                <h2 id={`${project.slug}-title`} data-portfolio-project={project.slug}>{project.name}</h2>
+                <p className="portfolio-project-lede">{project.short}</p>
+                <div className="portfolio-project-links">
                   <a className="text-link" href={project.url} target="_blank" rel="noopener noreferrer" data-event="outbound_portfolio" data-project={project.slug}>
                     {project.liveLabel || 'Visit live site'}<Arrow diagonal />
                   </a>
@@ -63,20 +40,21 @@ export default function Portfolio() {
                 </div>
               </header>
 
-              <div className="case-details case-showcase" data-home-reveal>
+              <div className="case-details case-showcase">
                 <div className="case-view">
-                  <div className="detail-image case-media-stage">
-                    <ProjectPreview project={project} variant={isProduct ? 'product' : 'desktop'} priority={index === 0} sizes="(max-width: 650px) calc(100vw - 80px), (max-width: 1100px) 52vw, 560px" />
+                  <div className="detail-image case-media-stage" data-home-reveal>
+                    <ProjectPreview project={project} variant={isProduct ? 'product' : 'desktop'} priority={index === 0} sizes="(max-width: 650px) calc(100vw - 40px), (max-width: 1100px) 52vw, 560px" />
                   </div>
                   <div className="annotation">
                     <h3>{project.decisions[0].title}</h3>
                     <p>{project.decisions[0].text}</p>
+                    <p className="portfolio-project-context">{project.intro}</p>
                   </div>
                 </div>
 
                 <div className="case-view case-view-mobile">
-                  <div className="mobile-image case-media-stage">
-                    <ProjectPreview project={project} variant="mobile" />
+                  <div className="mobile-image case-media-stage" data-home-reveal>
+                    <ProjectPreview project={project} variant="mobile" priority={index === 0} />
                   </div>
                   <div className="annotation">
                     <h3>{project.decisions[1].title}</h3>
@@ -84,14 +62,6 @@ export default function Portfolio() {
                   </div>
                 </div>
               </div>
-
-              <p className="portfolio-project-context">{project.intro}</p>
-
-              {project.clip && (
-                <div className="portfolio-project-motion">
-                  <Clip name={project.clip} poster={`/images/${project.asset}-product.webp`} />
-                </div>
-              )}
             </section>
           );
         })}
